@@ -7,6 +7,17 @@ SetWorkingDir, %A_ScriptDir%
 #Include, ../LibreriasAhk/leerExcel.ahk  
 #Include, ../LibreriasAhk/escribirExcel.ahk  
 /*
+Version 1.1.0 Ernesto Garcia 14/03/2024
+    Se añade el orden ASC y DESC 
+    Si es asc ordena los datos alfabéticamente (de la A a la Z) o mediante valores numéricos ascendentes
+    Si es desc ordena los datos alfabéticamente (de la Z a la A) o mediante valores numéricos descendiente
+    Cuando hay dos "filas iguales" Nos quedamos con la fila de mas arriba.
+    Se envia una variable mas (TipoOrden) con dos posibles valores asc o desc.
+    Nota: si se envia vacia o con un valor distinto a los dos posibles se considera orden ASC
+    ordenar_Excel_Por_Columna_EGR(FilePathficheroExcelLectura,Ordenacion_Columna,FilePathficheroExcelSalida,TipoOrden)
+    Funciones auxiliares cambiadas
+        indices_filas_ordenadas_columna(Matriz_Total,Ordenacion_Columna,TipoOrden)
+
 Version 1.0.0 Ernesto Garcia 13/03/2024
     ordenar_Excel_Por_Columna_EGR(FilePathficheroExcelLectura,Ordenacion_Columna,FilePathficheroExcelSalida)
     Dependencia con libreria 
@@ -21,7 +32,7 @@ Version 1.0.0 Ernesto Garcia 13/03/2024
   Devolvemos un String de OK o KO       
 */
 
-ordenar_Excel_Por_Columna_EGR(FilePathficheroExcelLectura,Ordenacion_Columna,FilePathficheroExcelSalida){
+ordenar_Excel_Por_Columna_EGR(FilePathficheroExcelLectura,Ordenacion_Columna,FilePathficheroExcelSalida,TipoOrden){
     Resultado := "" ; Devolvemos un String de OK o KO segun va Bien o Mal 
     ; Obtenemos los datos del EXCEL antes de empezar 
     Matriz_Total :=[]
@@ -30,7 +41,7 @@ ordenar_Excel_Por_Columna_EGR(FilePathficheroExcelLectura,Ordenacion_Columna,Fil
    
     ;Ponemos las filas del excel en un String para luego ir ordenando, solo cogemos la columna, y concatenamos la fila 
     InidcesFilasOrdenados := []
-    InidcesFilasOrdenados := indices_filas_ordenadas_columna(Matriz_Total,Ordenacion_Columna) ; 1xnumerofilas
+    InidcesFilasOrdenados := indices_filas_ordenadas_columna(Matriz_Total,Ordenacion_Columna,TipoOrden) ; 1xnumerofilas
     longitud_Inidces_Filas_Ordenados := InidcesFilasOrdenados.length()
       
     ;Ahora creamos una Matriz_Final con sólo las filas no repetidas (Todas las filas menos "Repetidos")
@@ -52,13 +63,14 @@ ordenar_Excel_Por_Columna_EGR(FilePathficheroExcelLectura,Ordenacion_Columna,Fil
 
 
    
- indices_filas_ordenadas_columna(Matriz_Total,Ordenacion_Columna) {
+ indices_filas_ordenadas_columna(Matriz_Total,Ordenacion_Columna,TipoOrden) {
 
     columna := Ordenacion_Columna
     MatrizResultado := []
     MatrizResultado2 := []
     MatrizResultado_F := []
     Indices_Filas_ordenadas := []
+    Indices_Filas_ordenadas_Salida := []
  
     MatrizResultado := string_datos_filas_columna(Matriz_Total, columna) ;Array 1xfilas
     MatrizResultado2 := string_datos_filas_columna(Matriz_Total, columna) ;Array 1xfilas
@@ -72,7 +84,14 @@ ordenar_Excel_Por_Columna_EGR(FilePathficheroExcelLectura,Ordenacion_Columna,Fil
        Indices_Filas_ordenadas.InsertAt(controlWhile1, valor) 
        controlWhile1++
     }
-    Return Indices_Filas_ordenadas
+    ;Aqui tenemos los indices ordenados de forma ASC. Si queremos que sea DESC llamamos a la funcion 
+    if(TipoOrden = "desc" or TipoOrden = "DESC"){
+        Indices_Filas_ordenadas_Salida := cambiarOrdenArray(Indices_Filas_ordenadas)
+    }else{
+        Indices_Filas_ordenadas_Salida := Indices_Filas_ordenadas
+    }
+
+    Return Indices_Filas_ordenadas_Salida
  
   }
 
@@ -176,3 +195,17 @@ Datos que luego podemos usar para ordenar
     Return Matriz_Salida
   }
 
+  cambiarOrdenArray(Indices_Filas_ordenadas){
+    ;Indice_Salida es un Array donde la primera posicion de Indices_Filas_ordenadas es la ultima
+    ; la segunda posicion de Indices_Filas_ordenadas es la penúltima....
+    Indice_Salida := []
+    longitud_Indices_Filas_ordenadas := Indices_Filas_ordenadas.MaxIndex()
+    controlWhile1 := 1
+    While, controlWhile1 <= longitud_Indices_Filas_ordenadas {
+        indiceAux := longitud_Indices_Filas_ordenadas - controlWhile1 +1 ; indice a donde va cada valor 
+        Indice_Salida[indiceAux] := Indices_Filas_ordenadas[controlWhile1]
+        controlWhile1++
+    }
+    Return Indice_Salida
+
+  }

@@ -21,3 +21,5 @@
     * Test_FMT1
     * Test_FMT3
     * Test_FMT4
+    * Test_FMT2
+    * validacionDatos.ahk (Validamos email)
