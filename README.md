@@ -20,6 +20,9 @@
     + añadimos cartetas de Test para las pruebas
     * Test_FMT1
     * Test_FMT3
-    * Test_FMT4
+    - Test_FMT4
+    + Test_FMT4_A
+    + Test_FMT4_B
     * Test_FMT2
     * validacionDatos.ahk (Validamos email)
+    * leerExcel.ahk (Funcion que te saca un elemento en concreto del excel)

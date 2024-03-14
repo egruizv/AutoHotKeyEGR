@@ -5,8 +5,30 @@ SetBatchLines, -1
 SetWorkingDir, %A_ScriptDir%
 
 #Include, ../LibreriasAhk/leerExcel.ahk  
-#Include, ../LibreriasAhk/escribirExcel.ahk  
+#Include, ../LibreriasAhk/escribirExcel.ahk 
+#Include, ../LibreriasAhk/validacionDatos.ahk 
 /*
+
+Version 1.2.0 Ernesto Garcia 14/03/2024
+    Valoramos que tipo de dato es y segun sea ordenamos Nota: Incluir ordenar fecha
+    En la ordenacion valoramos el tipo de dato que es  la columna que vamos a ordenar (Mirar Ordenacion_Columna)
+        Números: enteros y decimales. --> Aplicamos la ordenacion "normal" la actual
+        Texto: cadenas de caracteres alfanuméricos. --> Aplicamos la ordenacion "normal" la actual 
+        Fechas y horas: información de fecha y hora. --> Utilizaremos funcion especial de ordenacion Fechas 
+        Valores lógicos: verdadero/falso o 0/1.  --> Utilizaremos funcion especial de ordenacion Valores Logicos
+    Dependencia con libreria 
+       validacionDatos.ahk ( IsValidDateEGR(dateString) )
+       leerExcel.ahk  ( obtenerDatoFilaColumna(FilePathficheroExcelLectura,Fila,Columna))
+    Funciones auxiliares cambiadas
+        indices_filas_ordenadas_columna(Matriz_Total,Ordenacion_Columna,TipoOrden,TipoDatoColumna)
+    Funciones auxiliares en este script 
+        tipoDato(DatoColumna)
+        ordenar_Fecha(MatrizResultado,MatrizResultado2)
+        ordenar_Logico(MatrizResultado,MatrizResultado2)
+        Fecha_DDMMYYYY_a_YYYYMMDD(fecha_DDMMYYYY) 
+        Fecha_YYYYMMDD_DDMMYYYY(fecha_YYYYMMDD)
+        obtenerDatoFilaColumna()
+
 Version 1.1.0 Ernesto Garcia 14/03/2024
     Se añade el orden ASC y DESC 
     Si es asc ordena los datos alfabéticamente (de la A a la Z) o mediante valores numéricos ascendentes
@@ -37,11 +59,18 @@ ordenar_Excel_Por_Columna_EGR(FilePathficheroExcelLectura,Ordenacion_Columna,Fil
     ; Obtenemos los datos del EXCEL antes de empezar 
     Matriz_Total :=[]
     Matriz_Total := leer_Excel_completo_EGR(FilePathficheroExcelLectura)
+    ; Aqui buscamos el dato de la Fila = 1 yColumna = Ordenacion_Columna
+    FilaAux:= 1
+    ColumnaAux := Ordenacion_Columna
+    DatoColumna := ""
+    DatoColumna := obtenerDatoFilaColumna(FilePathficheroExcelLectura,FilaAux,ColumnaAux)
     longitud_Matriz_Total := Matriz_Total.length()
    
     ;Ponemos las filas del excel en un String para luego ir ordenando, solo cogemos la columna, y concatenamos la fila 
     InidcesFilasOrdenados := []
-    InidcesFilasOrdenados := indices_filas_ordenadas_columna(Matriz_Total,Ordenacion_Columna,TipoOrden) ; 1xnumerofilas
+    ; Mejora ordenacion segun el tipo de dato de la columna 
+    TipoDatoColumna := tipoDato(DatoColumna)
+    InidcesFilasOrdenados := indices_filas_ordenadas_columna(Matriz_Total,Ordenacion_Columna,TipoOrden,TipoDatoColumna) ; 1xnumerofilas    
     longitud_Inidces_Filas_Ordenados := InidcesFilasOrdenados.length()
       
     ;Ahora creamos una Matriz_Final con sólo las filas no repetidas (Todas las filas menos "Repetidos")
@@ -63,7 +92,7 @@ ordenar_Excel_Por_Columna_EGR(FilePathficheroExcelLectura,Ordenacion_Columna,Fil
 
 
    
- indices_filas_ordenadas_columna(Matriz_Total,Ordenacion_Columna,TipoOrden) {
+ indices_filas_ordenadas_columna(Matriz_Total,Ordenacion_Columna,TipoOrden,TipoDatoColumna) {
 
     columna := Ordenacion_Columna
     MatrizResultado := []
@@ -71,11 +100,19 @@ ordenar_Excel_Por_Columna_EGR(FilePathficheroExcelLectura,Ordenacion_Columna,Fil
     MatrizResultado_F := []
     Indices_Filas_ordenadas := []
     Indices_Filas_ordenadas_Salida := []
- 
+    TipoDatoColumnaAux := TipoDatoColumna
     MatrizResultado := string_datos_filas_columna(Matriz_Total, columna) ;Array 1xfilas
     MatrizResultado2 := string_datos_filas_columna(Matriz_Total, columna) ;Array 1xfilas
- 
-    MatrizResultado_F:= ordenar_String_Alfabeticamente(MatrizResultado,MatrizResultado2)
+    if(TipoDatoColumna = "Numero" or TipoDatoColumna = "Texto"){
+        MatrizResultado_F:= ordenar_String_Alfabeticamente(MatrizResultado,MatrizResultado2)
+    }else if(TipoDatoColumna = "Fecha"){
+        MatrizResultado_F:= ordenar_Fecha(MatrizResultado,MatrizResultado2)
+    }else if(TipoDatoColumna = "Logico"){
+        MatrizResultado_F:= ordenar_Logico(MatrizResultado,MatrizResultado2)
+    }else{ ;en el caso de que no se detecte o se envie un TipoDatoColumna lo consideramos como  la ordenacion "normal" la actual
+        MatrizResultado_F:= ordenar_String_Alfabeticamente(MatrizResultado,MatrizResultado2)
+    }
+
     longitud_Matriz_Resultado_F := MatrizResultado_F.length()
  
     controlWhile1 := 1
@@ -133,7 +170,6 @@ Datos que luego podemos usar para ordenar
  ordenar_String_Alfabeticamente(MatrizResultado) Ordena un StringAlfabericamente
  Devuelve una Matriz con fila , Datos 
  Matriz_Salida[1]:= [fila, Dato]
- NO ORDENA BIEN 
  */
  ordenar_String_Alfabeticamente(MatrizEntrada,MatrizAuxiliar) {
     Matriz_Salida := [] ; Matriz_Salida[1]:= [fila, Datos]
@@ -209,3 +245,96 @@ Datos que luego podemos usar para ordenar
     Return Indice_Salida
 
   }
+
+  tipoDato(DatoColumna){    
+    TipoDato_Salida := "Numero"
+    ;Las fechas las distinguimos por dd/mm/yyyy
+    ;Usaremos la libreria validacionDatos.ahk
+    if(IsValidDateEGR(DatoColumna)){
+        TipoDato_Salida:= "Fecha"
+    }
+    Return TipoDato_Salida
+
+  }
+
+
+
+  ordenar_Fecha(MatrizEntrada,MatrizAuxiliar) {
+
+    Matriz_Salida := [] ; Matriz_Salida[1]:= [fila, Datos]
+    ArrayDesordenado := MatrizEntrada ; Este es el Array Desordenado
+    ArrayDesordenado2 := [] ; Este es el Array Desordenado2 trasformando dd/mm/yyyy a yyyymmdd para poder ordenar alfabeticamente
+    for index, value in ArrayDesordenado
+    {
+        ArrayDesordenado2[index] := Fecha_DDMMYYYY_a_YYYYMMDD(ArrayDesordenado[index])
+    }
+    ; Implementar el algoritmo de ordenación de burbuja
+    Longitud := ArrayDesordenado2.MaxIndex()
+    Loop % Longitud {
+        for index, value in ArrayDesordenado2
+        {
+            if (index < Longitud) {
+                if (ArrayDesordenado2[index] > ArrayDesordenado2[index + 1]) {
+                    ; Intercambiar elementos si están en el orden incorrecto
+                    Temp := ArrayDesordenado2[index]
+                    ArrayDesordenado2[index] := ArrayDesordenado2[index + 1]
+                    ArrayDesordenado2[index + 1] := Temp
+                }
+            }
+        }
+    }
+ 
+    ;Volvemos a dejar el ArrayDesordenado2 que ya esta ordenado yyyymmdd a dd/mm/yyyy
+    for index, value in ArrayDesordenado2
+        {
+            ArrayDesordenado2[index] := Fecha_YYYYMMDD_DDMMYYYY(ArrayDesordenado2[index])
+        }
+    ; Iterar sobre los elementos ordenados
+    for index, value in ArrayDesordenado2
+    {
+        ; Insertar el par [fila, Dato] en Matriz_Salida
+        indiceOriginalMatrizEntrada := obtener_indiceOriginal(MatrizAuxiliar,value) ; funcion que recorre MatrizEntrada y busca el value , cuando lo encuentre devuelve el indice
+        Matriz_Salida.InsertAt(index, [indiceOriginalMatrizEntrada, value]) ; Usar index como el índice original
+    }
+ 
+    ; Devolver el Matriz_Salida
+    return Matriz_Salida
+
+    
+  }
+  ordenar_Logico(MatrizEntrada,MatrizAuxiliar) {
+    ordenar_String_Alfabeticamente(MatrizEntrada,MatrizAuxiliar) 
+  }
+
+/*
+llevamos dd/mm/yyyy a yyyymmdd
+*/
+  Fecha_DDMMYYYY_a_YYYYMMDD(fecha_DDMMYYYY) {
+    ; Dividir la fecha en día, mes y año
+    StringSplit, partes, fecha_DDMMYYYY, /
+
+    ; Obtener día, mes y año
+    dia := partes1
+    mes := partes2
+    anio := partes3
+
+    ; Asegurarse de que el día y el mes tengan dos dígitos
+    if (StrLen(dia) = 1)
+        dia := "0" dia
+    if (StrLen(mes) = 1)
+        mes := "0" mes
+
+    ; Formatear la fecha en el formato YYYYMMDD
+    fecha_YYYYMMDD := anio mes dia
+
+    ; Devolver la fecha formateada
+    return fecha_YYYYMMDD
+}
+/*
+llevamos yyyymmdd a dd/mm/yyyy
+*/
+Fecha_YYYYMMDD_DDMMYYYY(fecha_YYYYMMDD){
+    ; SubStr(fecha_YYYYMMDD, posicion, longitud)
+    fecha_DDMMYYYY :=  SubStr(fecha_YYYYMMDD, 7, 2)   . "/" . SubStr(fecha_YYYYMMDD, 5, 2)  . "/" SubStr(fecha_YYYYMMDD, 1, 4) 
+    Return fecha_DDMMYYYY
+}
