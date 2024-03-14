@@ -21,15 +21,24 @@ FilePathficheroExcelLectura := "C:\Users\egarciar\Documents\CAIXA\AutoHotKeyEGR\
 *******************************************************************************
 */
 
-numero_Columnas := numeroColumnasFichero(FilePathficheroExcelLectura)
+numero_ColumnasFichero := numeroColumnasFichero(FilePathficheroExcelLectura)
+Array_TipoOrden := ["ASC", "DESC"] ; Array para ordenar de las dos formas
+numero_Elementos_Array_TipoOrden := Array_TipoOrden.length() 
    controlWhile1 := 1
-   While, controlWhile1 <= numero_Columnas {
-        Resultado := ""
-      FilePathficheroExcelSalida := "C:\Users\egarciar\Documents\CAIXA\AutoHotKeyEGR\Datos_Prueba\Resultados\Excel_Filas_Ordenadas"
+   While, controlWhile1 <= numero_ColumnasFichero {
+      Resultado := ""
+      FilePathficheroExcelSalida := "C:\Users\egarciar\Documents\CAIXA\AutoHotKeyEGR\Datos_Prueba\Resultados\Test_FMT4\Excel_Filas_Ordenadas"
       Ordenacion_Columna := controlWhile1
       ; Concatenar la variable Ordenacion_Columna con la cadena FilePathficheroExcelSalida
-      FilePathficheroExcelSalida := FilePathficheroExcelSalida . "_" . Ordenacion_Columna . ".xlsx"
-      Reusltado := ordenar_Excel_Por_Columna_EGR(FilePathficheroExcelLectura, Ordenacion_Columna,FilePathficheroExcelSalida)
+      FilePathficheroExcelSalida := FilePathficheroExcelSalida . "_" . Ordenacion_Columna 
+      controlWhile2 := 1
+      While, controlWhile2 <= numero_Elementos_Array_TipoOrden {
+         TipoOrden := Array_TipoOrden[controlWhile2]
+         FilePathficheroExcelSalidaA := FilePathficheroExcelSalida . "_" . TipoOrden ; MIRAR 
+         FilePathficheroExcelSalidaB := FilePathficheroExcelSalidaA . ".xlsx"
+         ordenar_Excel_Por_Columna_EGR(FilePathficheroExcelLectura,Ordenacion_Columna,FilePathficheroExcelSalidaB,TipoOrden)
+      controlWhile2++
+      }
       controlWhile1++
       ;MsgBox, %Reusltado%
    }

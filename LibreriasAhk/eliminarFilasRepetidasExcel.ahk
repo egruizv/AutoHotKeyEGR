@@ -7,6 +7,14 @@ SetWorkingDir, %A_ScriptDir%
 #Include, ../LibreriasAhk/leerExcel.ahk  
 #Include, ../LibreriasAhk/escribirExcel.ahk  
 /*
+Version 2.0.0 Ernesto Garcia 14/03/2024
+    Se añade el eliminar filas repetidas indicando solo las columnas que tenemos que comparar
+    Se envía un Array con el numero de las columnas que queremos comparar (Nota : si enviamos el Array vacio es que miramos todas)
+    Cuando hay dos "filas iguales" Nos quedamos con la fila de mas arriba.
+    eliminar_filas_repetidas_Excel_EGR(FilePathficheroExcelLectura,FilePathficheroExcelSalida,ArrayColumnasComparar) 
+    Funciones auxiliares cambiadas
+        string_datos_filas(Matriz_Total,ArrayColumnasComparar)
+
 Version 1.0.0 Ernesto Garcia 13/03/2024
     eliminar_filas_repetidas_Excel_EGR(FilePathficheroExcelLectura,FilePathficheroExcelSalida) 
     Dependencia con libreria 
@@ -19,7 +27,7 @@ Version 1.0.0 Ernesto Garcia 13/03/2024
   Devolvemos un String de OK o KO       
 */
 
-eliminar_filas_repetidas_Excel_EGR(FilePathficheroExcelLectura,FilePathficheroExcelSalida){
+eliminar_filas_repetidas_Excel_EGR(FilePathficheroExcelLectura,FilePathficheroExcelSalida,ArrayColumnasComparar){
     Resultado := "" ; Devolvemos un String de OK o KO segun va Bien o Mal 
     ; Obtenemos los datos del EXCEL antes de empezar 
     Matriz_Total :=[]
@@ -28,7 +36,7 @@ eliminar_filas_repetidas_Excel_EGR(FilePathficheroExcelLectura,FilePathficheroEx
    
     ;Ponemos las filas del excel en un String para luego ir comparando
     MatrizResultadoString := []
-    MatrizResultadoString := string_datos_filas(Matriz_Total)
+    MatrizResultadoString := string_datos_filas(Matriz_Total,ArrayColumnasComparar)
     longitud_Matriz_Resultado_String := MatrizResultadoString.length()
    
     ;ComparamosString y devolvemos las posiciones que son iguales
@@ -55,15 +63,23 @@ eliminar_filas_repetidas_Excel_EGR(FilePathficheroExcelLectura,FilePathficheroEx
 
     /*
 Esta funcion string_datos_filas(MatrizLeer) hace lo siguiente:
-Recibe una Matriz RowArray :=[] que es un  Array de n posiciones y un fichero plano al que incluir los datos
+Recibe una Matriz RowArray :=[] que es un  Array de n posiciones y un array ArrayColumnasComparar de las columnas a comparar
 Ejemplo : 
 Recoge los datos de cada una de los RowArray[i] y los recorre 
 RowArray[1], RowArray[2].....RowArray[n]
-Concatena los datos de cada fila en un String
-Devolvemos una Matriz formada por "Strings" de la concatenacion de las columnas de cada fila
+Concatena los datos de cada fila en un String (Solo las columnas que hay en ArrayColumnasComparar)
+Devolvemos una Matriz formada por "Strings" de la concatenacion de las columnas de cada fila  (Solo las columnas que hay en ArrayColumnasComparar)
 */
-string_datos_filas(MatrizTotal){
+string_datos_filas(MatrizTotal,ArrayColumnasComparar){
+    ArrayColumnasElegidas := ArrayColumnasComparar 
+    ; Si ArrayColumnasComparar (ArrayColumnasElegidas) esta en blanco tenemos que coger todas las columnas
+    ;Variable cogerTodasLascolumnas
+    cogerTodasLascolumnas := false
+    if(ArrayColumnasElegidas = null or ArrayColumnasComparar.length() <=0){
+        cogerTodasLascolumnas := true
+    }
 
+    
     ;La Matriz final de resultados
     MatrizResultado :=[]
     ; Calculamos la longitud de MatrizTotal
@@ -76,14 +92,31 @@ string_datos_filas(MatrizTotal){
         controlWhile2 := 1
         String_fila := ""
         While, controlWhile2 <= longitud_MatizAuxiliar {
-            Concatenar := MatizAuxiliar[controlWhile2]
-            
-            ; Si es el primer elemento, no agregamos un "|" antes de él
-            If (controlWhile2 = 1){
-                String_fila := String_fila . Concatenar
+            ;Inicializamos Concatenar
+            Concatenar := ""
+            encontrado := false      
+            ; Itera sobre el array ArrayColumnasElegidas para ver si controlWhile2 pertenece a ArrayColumnasElegidas
+            for index, value in ArrayColumnasElegidas {
+                ; Comprueba si el valor actual es igual a vnumero
+                if (value = controlWhile2) {
+                    encontrado := true
+                    break  ; Termina el bucle si encuentra el valor
+                }
             }
-            else{
-                String_fila := String_fila . "|" . Concatenar
+            ;Solo cambiamos el valor de Concatenar en los ArrayColumnasElegidas
+            if(cogerTodasLascolumnas or encontrado){
+                Concatenar := MatizAuxiliar[controlWhile2]            
+            }
+
+            ;Solo añadimos Concatenar si es distinto de ""
+            if(Concatenar!=""){
+                ; si String_fila = "" entonves no agregamos un "|" antes de él (Mejora)
+                If (String_fila !=null and String_fila != ""){
+                    String_fila := String_fila . Concatenar
+                }
+                else{
+                    String_fila := String_fila . "|" . Concatenar
+                }
             }
             
             controlWhile2 := controlWhile2 + 1
