@@ -11,7 +11,7 @@
     * Test_FMT2 (Modificamos para mejorar)
 # feature/FMT4  Trabajamos con Excel
     + ordenarExcelPorColumna.ahk
-# feature/FMT4  Trabajamos con Excel
+# feature/FMT5  Trabajamos con Excel
     * eliminarFilasRepetidasExcel.ahk (Eliminamos filas repetidas segun una serie de columnas) (es decir eliminamos si A1 = A2 y B1 = B2 aunque los otros datos sean distintos quedandonos con la fila primera que se encuantra ) 
     * ordenarExcelPorColumna.ahk (Solucionar cuando las filas de la columna tenga datos iguales) (es decir si A1=A2 no funciona bien)
     * ordenarExcelPorColumna.ahk (Valoramos que tipo de dato es y segun sea ordenamos Nota: Incluir ordenar fecha)
