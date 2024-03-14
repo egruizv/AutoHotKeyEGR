@@ -75,3 +75,46 @@ leer_Excel_completo_EGR(FilePathficheroExcelLectura){
     xlApp := ""
     Return Matriz_Excel
   }
+
+
+  obtenerDatoFilaColumna(FilePathficheroExcelLectura,Fila,Columna){
+     ; Crea un objeto de Excel
+     xlApp := ComObjCreate("Excel.Application")
+     xlApp.Visible := false  ; Para que no se abra Excel visible
+   
+     ; Abre el archivo Excel
+     FilePath := FilePathficheroExcelLectura
+     xlBook := xlApp.Workbooks.Open(FilePath)
+   
+     ; Selecciona la primera hoja del libro
+     xlSheet := xlBook.Sheets(1)
+   
+     ; Obtén el rango de celdas con datos
+     xlRange := xlSheet.UsedRange
+   
+     ; Obtiene el número de filas y columnas en el rango
+     Rows := xlRange.Rows.Count
+     ;Rows := 11
+     Cols := xlRange.Columns.Count  
+   
+     ValorCelda :=  "" ;Resultado
+     numero_columna := Columna
+     numero_fila := Fila
+     CellValue := xlSheet.Cells(numero_fila, numero_columna).Value
+     if (CellValue != "") {   
+        ValorCelda := CellValue
+     }
+
+       ; Cierra el archivo Excel
+    xlBook.Close(false)
+  
+    ; Cierra la aplicación de Excel
+    xlApp.Quit()
+  
+    ; Libera los objetos de Excel de la memoria
+    xlRange := ""
+    xlSheet := ""
+    xlBook := ""
+    xlApp := ""
+    Return ValorCelda
+  }

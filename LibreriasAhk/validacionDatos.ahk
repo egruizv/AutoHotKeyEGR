@@ -5,6 +5,8 @@ SetBatchLines, -1
 SetWorkingDir, %A_ScriptDir%
 
 /*
+Version 1.1.0 Ernesto Garcia 13/03/2024 
+    isValidEmailEGR(emailStr)
 Version 1.0.0 Ernesto Garcia 12/03/2024 
     IsValidDateEGR(dateString)
     IsValidDNIEGR(dniString)
@@ -73,3 +75,58 @@ IsValidDNIEGR(dniString) {
     ; El DNI no es válido
     return false
 }
+
+; Función para validar un correo electrónico
+isValidEmailEGR(emailStr) {
+    ; Obtener la longitud del string
+    emailStrLen := StrLen(emailStr)
+    
+    ; Eliminar espacios en blanco (AutoTrim)
+    emailStr := Trim(emailStr)
+    
+    ; Convertir a minúsculas
+    StringLower, emailStr, emailStr
+    
+    ; Dividir en parte local y dominio
+    StringGetPos, atPos, emailStr, @, R
+    If ErrorLevel
+        Return false ; No hay @ en el string
+    
+    StringLeft, localPart, emailStr, %atPos%
+    StringRight, domainPart, emailStr, % emailStrLen - atPos - 1
+    
+    ; Permitir comentarios en partes de dominio
+    domainPart := RegExReplace(domainPart, "\([^()]*\)", "")
+    
+    ; Asegurarse de que no haya más de un @ (ya hemos sanitizado los válidos)
+    If InStr(localPart, "@")
+        Return false ; Demasiados @ en el string
+    
+    ; Verificar que el nombre de usuario tenga al menos 1 caracter
+    If StrLen(localPart) = 0
+        Return false ; Falta el nombre de usuario
+    
+    ; Dividir la parte de dominio en componentes
+    StringSplit, domainComponents, domainPart, `. 
+    
+    ; Verificar que haya al menos 2 componentes de dominio
+    If domainComponents0 < 2
+        Return false ; No hay suficientes componentes de dominio
+    
+    ; Verificar cada componente de dominio
+    Loop %domainComponents0%
+    {
+        domainComponent := domainComponents%A_Index%
+        If (StrLen(domainComponent) > 0)
+        {
+            StringLeft, firstChar, domainComponent, 1
+            StringRight, lastChar, domainComponent, 1
+            If RegExMatch(firstChar, "[\.-]")
+                Return false ; Carácter inválido al principio
+        }
+    }
+    
+    ; El correo es válido
+    Return true
+}
+

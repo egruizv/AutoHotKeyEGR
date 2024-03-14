@@ -20,6 +20,9 @@ fecha := "27/09/2025" ; correcto
 ; Ejemplo de uso IsValidDNIEGR
 ;dni := "12345678-A" ;incorrecto
 dni := "00000003-A" ;correcto
+; Ejemplo de uso isValidEmailEGR
+emailToCheck := "nombre.apellido@@dominio.com" ;incorrecto dos arrobas
+;emailToCheck := "nombre.apellido@dominio.com" ;correcto
 
 /******************************************************************************
 ********************* LANZAMOS EL ROBOT ***************************************
@@ -29,6 +32,8 @@ dni := "00000003-A" ;correcto
 pruebaIsValidDateEGR(fecha)
 ; Ejemplo de uso IsValidDNIEGR
 pruebaIsValidDNIEGR(dni)
+; Ejemplo de uso isValidEmailEGR
+pruebaisValidEmailEGR(emailToCheck)
 ;MsgBox, Ha terminado todo correcto
 
 /******************************************************************************
@@ -49,4 +54,15 @@ pruebaIsValidDNIEGR(dni){
     } else {
         MsgBox "El DNI " . %dni% . " no es valido."
     }
+}
+
+
+pruebaisValidEmailEGR(emailStr){
+isEmailValid := isValidEmailEGR(emailStr)
+if(isEmailValid){
+    MsgBox, "El correo" . %emailStr% . " es valido."
+}else{
+    MsgBox, "El correo" . %emailStr% . " NO es valido."
+}
+
 }
