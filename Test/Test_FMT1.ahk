@@ -24,7 +24,7 @@ FilePathficheroExcelLectura := "C:\Users\egarciar\Documents\CAIXA\AutoHotKeyEGR\
 */
 Matriz_Excel := [] ; Resultado
 Matriz_Excel := leer_Excel_completo_EGR(FilePathficheroExcelLectura)
-;MsgBox, Ha terminado todo correcto
+MsgBox, Ha terminado todo correcto
 
 /******************************************************************************
 ********************* FUNCIONES ***********************************************

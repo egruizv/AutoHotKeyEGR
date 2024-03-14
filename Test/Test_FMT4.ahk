@@ -25,7 +25,7 @@ numero_Columnas := numeroColumnasFichero(FilePathficheroExcelLectura)
    controlWhile1 := 1
    While, controlWhile1 <= numero_Columnas {
         Resultado := ""
-      FilePathficheroExcelSalida := "C:\Users\egarciar\Documents\CAIXA\AutoHotKeyEGR\Datos_Prueba\Resultados\Excel_Filas_Ordenadas"
+      FilePathficheroExcelSalida := "C:\Users\egarciar\Documents\CAIXA\AutoHotKeyEGR\Datos_Prueba\Resultados\Test_FMT4\Excel_Filas_Ordenadas"
       Ordenacion_Columna := controlWhile1
       ; Concatenar la variable Ordenacion_Columna con la cadena FilePathficheroExcelSalida
       FilePathficheroExcelSalida := FilePathficheroExcelSalida . "_" . Ordenacion_Columna . ".xlsx"
