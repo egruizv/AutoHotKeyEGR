@@ -278,11 +278,15 @@ Datos que luego podemos usar para ordenar
   }
 
   tipoDato(DatoColumna){    
-    TipoDato_Salida := "Numero"
+    TipoDato_Salida := "Texto"
     ;Las fechas las distinguimos por dd/mm/yyyy
     ;Usaremos la libreria validacionDatos.ahk
     if(IsValidDateEGR(DatoColumna)){
         TipoDato_Salida:= "Fecha"
+    }else if (IsValidEsBooleanEGR(DatoColumna)){
+        TipoDato_Salida:= "Logico"
+    }else if(IsValidEsNumeroEGR(DatoColumna)){
+        TipoDato_Salida:= "Numero"
     }
     Return TipoDato_Salida
 
@@ -339,7 +343,8 @@ Datos que luego podemos usar para ordenar
     
   }
   ordenar_Logico(MatrizEntrada,MatrizAuxiliar) {
-    ordenar_String_Alfabeticamente(MatrizEntrada,MatrizAuxiliar) 
+    Matriz_Salida:= ordenar_String_Alfabeticamente(MatrizEntrada,MatrizAuxiliar) 
+    return Matriz_Salida
   }
 
 /*
