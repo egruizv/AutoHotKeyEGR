@@ -29,4 +29,5 @@
     * ordenarExcelPorColumna.ahk (Solucionar cuando las filas de la columna tenga datos iguales) (es decir si A1=A2 no funciona bien)
     + buscarDatoExcel.ahk (Busca un elemento en el Excel y saca un informe de las posiciones donde se encuetra)
     + TEST_FMT6.ahk
-    + Test_FMT4_C.ahk (Pruebas de ordenacion con datos repetidos en columnas)
+    * Test_FMT4_C.ahk (Pruebas de ordenacion con datos repetidos en columnas)
+    * Test_FMT4_B.ahk (Prueba de ordenacion de fechas con datos repetidos en columnas)
