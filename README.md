@@ -31,3 +31,9 @@
     + TEST_FMT6.ahk
     * Test_FMT4_C.ahk (Pruebas de ordenacion con datos repetidos en columnas)
     * Test_FMT4_B.ahk (Prueba de ordenacion de fechas con datos repetidos en columnas)
+# feature/FMT7  Trabajamos con Excel
+    * ordenarExcelPorColumna.ahk (Ordenar campos logicos True y False)
+    * validacionDatos.ahk (Validamos si un dato es booleano o no) 
+    * validacionDatos.ahk (Validamos si un dato es un numero o no) 
+    * Test_FMT2.ahk     
+    + Test_FMT4_D.ahk    

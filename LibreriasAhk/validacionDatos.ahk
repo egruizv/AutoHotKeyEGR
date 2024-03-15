@@ -5,6 +5,9 @@ SetBatchLines, -1
 SetWorkingDir, %A_ScriptDir%
 
 /*
+Version 1.2.0 Ernesto Garcia 15/03/2024 
+    IsValidEsBooleanEGR(Dato)
+    IsValidEsNumeroEGR(Dato)
 Version 1.1.0 Ernesto Garcia 13/03/2024 
     isValidEmailEGR(emailStr)
 Version 1.0.0 Ernesto Garcia 12/03/2024 
@@ -130,3 +133,16 @@ isValidEmailEGR(emailStr) {
     Return true
 }
 
+IsValidEsBooleanEGR(Dato){
+     ; Comprueba si el valor Dato es verdadero (true) o falso (false)
+     if (Dato = true or Dato = false)
+        return true
+    else
+        return false
+}
+
+IsValidEsNumeroEGR(Dato){
+    ;Comprobamos si el valor de Dato es un numero
+     ; Comprueba si el valor es un número
+     return RegExMatch(Dato, "^\-?\d+(\.\d+)?$")
+}
