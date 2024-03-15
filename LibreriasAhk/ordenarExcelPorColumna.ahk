@@ -8,6 +8,14 @@ SetWorkingDir, %A_ScriptDir%
 #Include, ../LibreriasAhk/escribirExcel.ahk 
 #Include, ../LibreriasAhk/validacionDatos.ahk 
 /*
+Version 1.3.0 Ernesto Garcia 14/03/2024
+    Solucionar Fix : Cuando en la columna hay datos repetidos no ordena bien 
+     Funciones auxiliares cambiadas
+        ordenar_String_Alfabeticamente(MatrizEntrada,MatrizAuxiliar)
+        ordenar_Fecha(MatrizEntrada,MatrizAuxiliar)
+        obtener_indiceOriginal(MatrizEntrada,value,controlIndicesRepetidos)
+    Funciones auxiliares en este script 
+         estaDatoEnArrayDatos(Dato,ArrayDatos)
 
 Version 1.2.0 Ernesto Garcia 14/03/2024
     Valoramos que tipo de dato es y segun sea ordenamos Nota: Incluir ordenar fecha
@@ -23,8 +31,8 @@ Version 1.2.0 Ernesto Garcia 14/03/2024
         indices_filas_ordenadas_columna(Matriz_Total,Ordenacion_Columna,TipoOrden,TipoDatoColumna)
     Funciones auxiliares en este script 
         tipoDato(DatoColumna)
-        ordenar_Fecha(MatrizResultado,MatrizResultado2)
-        ordenar_Logico(MatrizResultado,MatrizResultado2)
+        ordenar_Fecha(MatrizEntrada,MatrizAuxiliar) 
+        ordenar_Logico(MatrizEntrada,MatrizAuxiliar)
         Fecha_DDMMYYYY_a_YYYYMMDD(fecha_DDMMYYYY) 
         Fecha_YYYYMMDD_DDMMYYYY(fecha_YYYYMMDD)
         obtenerDatoFilaColumna()
@@ -190,12 +198,16 @@ Datos que luego podemos usar para ordenar
             }
         }
     }
- 
+    controlIndicesRepetidos := []
     ; Iterar sobre los elementos ordenados
     for index, value in ArrayDesordenado
     {
         ; Insertar el par [fila, Dato] en Matriz_Salida
-        indiceOriginalMatrizEntrada := obtener_indiceOriginal(MatrizAuxiliar,value) ; funcion que recorre MatrizEntrada y busca el value , cuando lo encuentre devuelve el indice
+        ;Enviamos la variable controlIndicesRepetidos para controlar los valores repetidos
+         ; funcion que recorre MatrizEntrada y busca el value , cuando lo encuentre devuelve el indice 
+         ; si ese indice ya existe en controlIndicesRepetidos sigue buscando al siguiente
+        indiceOriginalMatrizEntrada := obtener_indiceOriginal(MatrizAuxiliar,value,controlIndicesRepetidos) ; funcion que recorre MatrizEntrada y busca el value , cuando lo encuentre devuelve el indice
+        controlIndicesRepetidos.InsertAt(index,indiceOriginalMatrizEntrada)
         Matriz_Salida.InsertAt(index, [indiceOriginalMatrizEntrada, value]) ; Usar index como el índice original
     }
  
@@ -203,17 +215,36 @@ Datos que luego podemos usar para ordenar
     return Matriz_Salida
  }
  
- obtener_indiceOriginal(MatrizEntrada,value){
+ obtener_indiceOriginal(MatrizEntrada,value,controlIndicesRepetidos){
     longitud_MatrizEntrada := MatrizEntrada.MaxIndex()
     controlWhile1 := 1
+    bControlRepetido := true ; Si el valor es false es que no esta repetido, si es true es que esta repetido. Lo inicializamos a false para obligar a entrar en 
     While, controlWhile1 <= longitud_MatrizEntrada {
        if(MatrizEntrada[controlWhile1] = value){
-          return controlWhile1
+        bControlRepetido:=  estaDatoEnArrayDatos(controlWhile1,controlIndicesRepetidos)
+        if(!bControlRepetido){  ; Si coinciden MatrizEntrada[controlWhile1] = value y ademas no esta el indice en controlIndicesRepetidos lo incluimos 
+            return controlWhile1
+        }
        }
        controlWhile1++ 
     }
+    ;Si llegamos aqui es que hay un error en la programacion 
+
  }
 
+
+ estaDatoEnArrayDatos(Dato,ArrayDatos){    
+    longitud_ArrayDatos:= ArrayDatos.length()
+    controlWhile1 := 1
+    While, controlWhile1 <= longitud_ArrayDatos {
+        valor := ArrayDatos[controlWhile1]
+        if(valor = Dato){                
+            return true ; Si lo encuentra devuelve true
+        }
+        controlWhile1++    
+    }
+    return false ; Si no lo encuentra entonces devuelve false 
+ }
 
  filasOrdenadasExcel(Matriz_Total,InidcesFilasOrdenados) {
     Matriz_Salida := []
@@ -289,11 +320,16 @@ Datos que luego podemos usar para ordenar
         {
             ArrayDesordenado2[index] := Fecha_YYYYMMDD_DDMMYYYY(ArrayDesordenado2[index])
         }
+    controlIndicesRepetidos := []    
     ; Iterar sobre los elementos ordenados
     for index, value in ArrayDesordenado2
     {
         ; Insertar el par [fila, Dato] en Matriz_Salida
-        indiceOriginalMatrizEntrada := obtener_indiceOriginal(MatrizAuxiliar,value) ; funcion que recorre MatrizEntrada y busca el value , cuando lo encuentre devuelve el indice
+        ;Enviamos la variable controlIndicesRepetidos para controlar los valores repetidos
+        ; funcion que recorre MatrizEntrada y busca el value , cuando lo encuentre devuelve el indice 
+        ; si ese indice ya existe en controlIndicesRepetidos sigue buscando al siguiente
+        indiceOriginalMatrizEntrada := obtener_indiceOriginal(MatrizAuxiliar,value,controlIndicesRepetidos) ; funcion que recorre MatrizEntrada y busca el value , cuando lo encuentre devuelve el indice
+        controlIndicesRepetidos.InsertAt(index,indiceOriginalMatrizEntrada)
         Matriz_Salida.InsertAt(index, [indiceOriginalMatrizEntrada, value]) ; Usar index como el índice original
     }
  

@@ -22,10 +22,10 @@ DatoBuscado := "Luis"
 */
 MatrizPosiciones := []
 
-MatrizPosiciones.InsertAt(1,[3,4])
-MatrizPosiciones.InsertAt(2,[5,7])
+;MatrizPosiciones.InsertAt(1,[3,4])
+;MatrizPosiciones.InsertAt(2,[5,7])
 
-;MatrizPosiciones := buscarDatoExcel(FilePathficheroExcelLectura,DatoBuscado)
+MatrizPosiciones := buscarDatoExcel(FilePathficheroExcelLectura,DatoBuscado)
 ;Pintamos MatrizPosiciones por consola usando AutoHotkey Debug
 ; Imprimir el contenido de la matriz
 for index, value in MatrizPosiciones {
