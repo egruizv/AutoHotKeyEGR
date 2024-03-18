@@ -36,4 +36,11 @@
     * validacionDatos.ahk (Validamos si un dato es booleano o no) 
     * validacionDatos.ahk (Validamos si un dato es un numero o no) 
     * Test_FMT2.ahk     
-    + Test_FMT4_D.ahk    
+    + Test_FMT4_D.ahk  
+ # feature/FMT8 Reto_1_rpachallenge
+    * 01_Rellenar_Campos_v1.ahk
+    * 02_Rellenar_Campos_Chrome_v1.ahk  
+    * LibreriasAhk\Chrome.ahk   
+    * LibreriasAhk\JSON.ahk
+    * LibreriasAhk\WebSocket.ahk 
+    * Test_FMT8.ahk 
