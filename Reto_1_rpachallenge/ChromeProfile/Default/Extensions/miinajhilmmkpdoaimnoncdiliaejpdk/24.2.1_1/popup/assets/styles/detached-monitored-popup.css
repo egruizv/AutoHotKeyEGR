@@ -1,0 +1,2455 @@
+/*
+ * Copyright (c) 2004-2024 Nexthink
+ * This source code is being shared with Mozilla for security review only - all rights reserved
+ */
+
+header {
+  grid-area: header;
+}
+
+/*
+ * Copyright (c) 2004-2024 Nexthink
+ * This source code is being shared with Mozilla for security review only - all rights reserved
+ */
+
+main {
+  grid-area: main;
+}
+
+main.scrollable {
+  overflow-y: auto;
+  height: 100%;
+}
+
+/*
+ * Copyright (c) 2004-2024 Nexthink
+ * This source code is being shared with Mozilla for security review only - all rights reserved
+ */
+
+footer {
+  grid-area: footer;
+  align-self: end;
+}
+
+/*
+ * Copyright (c) 2004-2024 Nexthink
+ * This source code is being shared with Mozilla for security review only - all rights reserved
+ */
+
+#popup {
+  flex: 1;
+  display: grid;
+  grid-template-areas:
+    ". header ."
+    ". main ."
+    ". footer .";
+  grid-template-columns: 0fr minmax(400px, 50%) 0fr;
+  grid-template-rows: 0fr minmax(0, 1fr) 0fr;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 24px 40px;
+}
+
+/* * Copyright (c) 2004-2024 Nexthink * This source code is being shared with Mozilla for security review only - all rights reserved */
+.p-4px {
+  padding: 4px;
+}
+.p-8px {
+  padding: 8px;
+}
+.p-12px {
+  padding: 12px;
+}
+.p-16px {
+  padding: 16px;
+}
+.p-24px {
+  padding: 24px;
+}
+.p-32px {
+  padding: 32px;
+}
+.p-40px {
+  padding: 40px;
+}
+.p-48px {
+  padding: 48px;
+}
+.pt-4px {
+  padding-top: 4px;
+}
+.pt-8px {
+  padding-top: 8px;
+}
+.pt-12px {
+  padding-top: 12px;
+}
+.pt-16px {
+  padding-top: 16px;
+}
+.pt-24px {
+  padding-top: 24px;
+}
+.pt-32px {
+  padding-top: 32px;
+}
+.pt-40px {
+  padding-top: 40px;
+}
+.pt-48px {
+  padding-top: 48px;
+}
+.pr-4px {
+  padding-right: 4px;
+}
+.pr-8px {
+  padding-right: 8px;
+}
+.pr-12px {
+  padding-right: 12px;
+}
+.pr-16px {
+  padding-right: 16px;
+}
+.pr-24px {
+  padding-right: 24px;
+}
+.pr-32px {
+  padding-right: 32px;
+}
+.pr-40px {
+  padding-right: 40px;
+}
+.pr-48px {
+  padding-right: 48px;
+}
+.pb-4px {
+  padding-bottom: 4px;
+}
+.pb-8px {
+  padding-bottom: 8px;
+}
+.pb-12px {
+  padding-bottom: 12px;
+}
+.pb-16px {
+  padding-bottom: 16px;
+}
+.pb-24px {
+  padding-bottom: 24px;
+}
+.pb-32px {
+  padding-bottom: 32px;
+}
+.pb-40px {
+  padding-bottom: 40px;
+}
+.pb-48px {
+  padding-bottom: 48px;
+}
+.pl-4px {
+  padding-left: 4px;
+}
+.pl-8px {
+  padding-left: 8px;
+}
+.pl-12px {
+  padding-left: 12px;
+}
+.pl-16px {
+  padding-left: 16px;
+}
+.pl-24px {
+  padding-left: 24px;
+}
+.pl-32px {
+  padding-left: 32px;
+}
+.pl-40px {
+  padding-left: 40px;
+}
+.pl-48px {
+  padding-left: 48px;
+}
+.m-4px {
+  margin: 4px;
+}
+.m-8px {
+  margin: 8px;
+}
+.m-12px {
+  margin: 12px;
+}
+.m-16px {
+  margin: 16px;
+}
+.m-24px {
+  margin: 24px;
+}
+.m-32px {
+  margin: 32px;
+}
+.m-40px {
+  margin: 40px;
+}
+.m-48px {
+  margin: 48px;
+}
+.m-auto {
+  margin: auto;
+}
+.mt-4px {
+  margin-top: 4px;
+}
+.mt-8px {
+  margin-top: 8px;
+}
+.mt-12px {
+  margin-top: 12px;
+}
+.mt-16px {
+  margin-top: 16px;
+}
+.mt-24px {
+  margin-top: 24px;
+}
+.mt-32px {
+  margin-top: 32px;
+}
+.mt-40px {
+  margin-top: 40px;
+}
+.mt-48px {
+  margin-top: 48px;
+}
+.mt-auto {
+  margin-top: auto;
+}
+.mr-4px {
+  margin-right: 4px;
+}
+.mr-8px {
+  margin-right: 8px;
+}
+.mr-12px {
+  margin-right: 12px;
+}
+.mr-16px {
+  margin-right: 16px;
+}
+.mr-24px {
+  margin-right: 24px;
+}
+.mr-32px {
+  margin-right: 32px;
+}
+.mr-40px {
+  margin-right: 40px;
+}
+.mr-48px {
+  margin-right: 48px;
+}
+.mr-auto {
+  margin-right: auto;
+}
+.mb-4px {
+  margin-bottom: 4px;
+}
+.mb-8px {
+  margin-bottom: 8px;
+}
+.mb-12px {
+  margin-bottom: 12px;
+}
+.mb-16px {
+  margin-bottom: 16px;
+}
+.mb-24px {
+  margin-bottom: 24px;
+}
+.mb-32px {
+  margin-bottom: 32px;
+}
+.mb-40px {
+  margin-bottom: 40px;
+}
+.mb-48px {
+  margin-bottom: 48px;
+}
+.mb-auto {
+  margin-bottom: auto;
+}
+.ml-4px {
+  margin-left: 4px;
+}
+.ml-8px {
+  margin-left: 8px;
+}
+.ml-12px {
+  margin-left: 12px;
+}
+.ml-16px {
+  margin-left: 16px;
+}
+.ml-24px {
+  margin-left: 24px;
+}
+.ml-32px {
+  margin-left: 32px;
+}
+.ml-40px {
+  margin-left: 40px;
+}
+.ml-48px {
+  margin-left: 48px;
+}
+.ml-auto {
+  margin-left: auto;
+}
+
+/*
+ * Copyright (c) 2004-2024 Nexthink
+ * This source code is being shared with Mozilla for security review only - all rights reserved
+ */
+
+.flexbox {
+  display: flex;
+}
+
+.flexbox-direction-row {
+  flex-direction: row;
+}
+
+.flexbox-direction-column {
+  flex-direction: column;
+}
+
+.flexbox-align-items-stretch {
+  align-items: stretch;
+}
+
+.flexbox-align-items-center {
+  align-items: center;
+}
+
+.flexbox-align-items-start {
+  align-items: start;
+}
+
+.flexbox-align-items-end {
+  align-items: end;
+}
+
+.flexbox-align-items-flex-start {
+  align-items: flex-start;
+}
+
+.flexbox-align-items-flex-end {
+  align-items: flex-end;
+}
+
+.flexbox-align-items-self-start {
+  align-items: self-start;
+}
+
+.flexbox-align-items-self-end {
+  align-items: self-end;
+}
+
+.flexbox-align-items-baseline {
+  align-items: baseline;
+}
+
+.flexbox-gap-4px {
+  gap: 4px;
+}
+
+.flexbox-gap-8px {
+  gap: 8px;
+}
+
+.flexbox-gap-12px {
+  gap: 12px;
+}
+
+.flexbox-gap-16px {
+  gap: 16px;
+}
+
+.flexbox-gap-24px {
+  gap: 24px;
+}
+
+.flexbox-gap-32px {
+  gap: 32px;
+}
+
+.flexbox-gap-40px {
+  gap: 40px;
+}
+
+.flexbox-gap-48px {
+  gap: 48px;
+}
+
+.flex-order-1 {
+  order: 1;
+}
+
+.flex-order-2 {
+  order: 2;
+}
+
+.flex-order-3 {
+  order: 3;
+}
+
+/*
+ * Copyright (c) 2004-2024 Nexthink
+ * This source code is being shared with Mozilla for security review only - all rights reserved
+ */
+
+.separator {
+  opacity: 0.2;
+}
+
+.separator-wrapper {
+  flex-basis: 100%;
+}
+
+/*
+ * Copyright (c) 2004-2024 Nexthink
+ * This source code is being shared with Mozilla for security review only - all rights reserved
+ */
+
+.body {
+  font-family: Inter, Arial, sans-serif;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1rem;
+}
+
+.body-strong {
+  font-family: Inter, Arial, sans-serif;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1rem;
+}
+
+.body-small {
+  font-family: Inter, Arial, sans-serif;
+  font-size: 0.6875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1rem;
+}
+
+.body-very-small {
+  font-family: Inter, Arial, sans-serif;
+  font-size: 0.5625rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 0.75rem;
+}
+
+.heading3 {
+  font-family: Inter, Arial, sans-serif;
+  font-style: normal;
+  font-size: 1.17em;
+  font-weight: 700;
+  line-height: 1.5rem;
+}
+
+.heading4 {
+  font-family: Inter, Arial, sans-serif;
+  font-style: normal;
+  font-size: 1.17em;
+  font-weight: 600;
+  line-height: 1.5rem;
+}
+
+.sub {
+  font-family: Inter, Arial, sans-serif;
+  font-size: 0.6875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1rem;
+}
+
+.text-with-icon {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  gap: 8px;
+}
+
+.text-primary {
+  color: var(--text-primary-color);
+}
+
+.text-secondary {
+  color: var(--text-secondary-color);
+}
+
+.text-tertiary {
+  color: var(--text-tertiary-color);
+}
+
+.text-interactive {
+  color: var(--text-interactive-color);
+}
+
+.text-disabled {
+  color: var(--text-disabled-color);
+}
+
+/*
+ * Copyright (c) 2004-2024 Nexthink
+ * This source code is being shared with Mozilla for security review only - all rights reserved
+ */
+
+span[data-tooltip] {
+  display: inline-flex;
+  position: relative;
+  cursor: help;
+}
+
+span[data-tooltip]::after {
+  opacity: 0;
+  pointer-events: none;
+  content: attr(data-tooltip);
+  max-width: 250px;
+  width: 25vw;
+  padding: 12px;
+  transform: translateY(-20px);
+  transition: all 150ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 4px;
+  display: inline-flex;
+  position: absolute;
+  z-index: 1000;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 400;
+  line-height: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 4px 8px;
+}
+
+span[data-tooltip].left::after {
+  right: 0;
+  margin-right: 16px;
+}
+
+span[data-tooltip].right::after {
+  left: 0;
+  margin-left: 16px;
+}
+
+span[data-tooltip].top::after {
+  bottom: 0;
+  margin-bottom: 16px;
+}
+
+span[data-tooltip].bottom::after {
+  top: 0;
+  margin-top: 16px;
+}
+
+span[data-tooltip]:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+  transition-duration: 300ms;
+}
+
+@media (prefers-color-scheme: light) {
+  span[data-tooltip]::after {
+    color: rgb(255, 255, 255);
+    background-color: rgb(39, 45, 54);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  span[data-tooltip]::after {
+    color: rgb(39, 45, 54);
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+/*
+ * Copyright (c) 2004-2024 Nexthink
+ * This source code is being shared with Mozilla for security review only - all rights reserved
+ */
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toggle-reverse {
+  flex-direction: row-reverse;
+}
+
+.toggle-checkbox {
+  position: absolute;
+  visibility: hidden;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 28px;
+  height: 16px;
+  border-radius: 8px;
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.toggle-switch:before {
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  position: absolute;
+  content: "";
+  left: -1px;
+  bottom: -1px;
+  transition: all 0.4s ease 0s;
+}
+
+.toggle-checkbox:checked + .toggle-switch:before {
+  transform: translateX(12px);
+}
+
+.toggle-checkbox:disabled + .toggle-switch {
+  cursor: auto;
+}
+
+.toggle-label {
+  margin-right: 8px;
+  color: var(--text-primary-color);
+  padding: 0px;
+}
+
+@media (prefers-color-scheme: light) {
+  .toggle-switch {
+    box-shadow: rgba(139, 147, 166, 0.08) 0px 1px 0px;
+    background-color: rgb(228, 230, 241);
+    border: 1px solid rgb(189, 193, 205);
+  }
+
+  .toggle-switch:before {
+    border: 1px solid rgb(189, 193, 205);
+    background-color: rgb(255, 255, 255);
+  }
+
+  .toggle-checkbox:disabled + .toggle-switch {
+    box-shadow: rgba(139, 147, 166, 0.08) 0px 1px 0px;
+    background-color: rgb(228, 230, 241);
+    border: 1px solid rgb(216, 220, 234);
+  }
+
+  .toggle-checkbox:disabled + .toggle-switch:before {
+    border: 1px solid rgb(216, 220, 234);
+    background-color: rgb(250, 250, 253);
+  }
+
+  .toggle-checkbox:checked + .toggle-switch {
+    background-color: rgb(8, 86, 138);
+    border: 1px solid rgb(8, 86, 138);
+  }
+
+  .toggle-checkbox:checked + .toggle-switch:before {
+    border: 1px solid rgb(8, 86, 138);
+  }
+
+  .toggle-checkbox:disabled:checked + .toggle-switch {
+    background-color: rgb(145, 176, 204);
+    border: 1px solid rgb(145, 176, 204);
+  }
+
+  .toggle-checkbox:disabled:checked + .toggle-switch:before {
+    border: 1px solid rgb(145, 176, 204);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .toggle-switch {
+    box-shadow: rgba(255, 255, 255, 0.12) 0px 1px 0px inset, rgb(29, 34, 41) 0px 1px 0px;
+    background-color: rgb(89, 96, 110);
+    border: 1px solid rgb(89, 96, 110);
+  }
+
+  .toggle-switch::before {
+    border: 1px solid rgb(89, 96, 110);
+    background-color: rgb(255, 255, 255);
+  }
+
+  .toggle-checkbox:disabled + .toggle-switch {
+    box-shadow: rgba(255, 255, 255, 0.12) 0px 1px 0px inset, rgb(29, 34, 41) 0px 1px 0px;
+    background-color: rgb(61, 67, 78);
+    border: 1px solid rgb(61, 67, 78);
+  }
+
+  .toggle-checkbox:disabled + .toggle-switch:before {
+    border: 1px solid rgb(61, 67, 78);
+    background-color: rgb(93, 98, 104);
+  }
+
+  .toggle-checkbox:checked + .toggle-switch {
+    background-color: rgb(12, 111, 198);
+    border: 1px solid rgb(12, 111, 198);
+  }
+
+  .toggle-checkbox:checked + .toggle-switch:before {
+    border: 1px solid rgb(12, 111, 198);
+  }
+
+  .toggle-checkbox:disabled:checked + .toggle-switch {
+    background-color: rgb(27, 64, 100);
+    border: 1px solid rgb(27, 64, 100);
+  }
+
+  .toggle-checkbox:disabled:checked + .toggle-switch:before {
+    border: 1px solid rgb(27, 64, 100);
+  }
+}
+
+/*
+ * Copyright (c) 2004-2024 Nexthink
+ * This source code is being shared with Mozilla for security review only - all rights reserved
+ */
+
+.textarea-container {
+  position: relative;
+  height: 76px;
+}
+
+.textarea-container:hover {
+  cursor: pointer;
+}
+
+.textarea {
+  border-radius: 4px;
+  box-sizing: border-box;
+  height: 100%;
+  overflow: hidden auto;
+  resize: none;
+  width: 100%;
+  padding: 3px 8px;
+  font: 400 0.75rem / 1rem Inter, Arial, sans-serif;
+}
+
+.textarea:focus-visible {
+  padding-left: 7px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-right: 12px;
+}
+
+.textarea-copy-icon > textarea {
+  padding-right: 24px;
+}
+
+.textarea-copy-icon::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 8px;
+  mask: url(../../assets/images/ab234df2ed717ef957f1.svg);
+  -webkit-mask: url(../../assets/images/ab234df2ed717ef957f1.svg);
+  background-color: var(--text-interactive-color);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.textarea-check-icon::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 8px;
+  mask: url(../../assets/images/8b0c389fb29560a3326f.svg);
+  -webkit-mask: url(../../assets/images/8b0c389fb29560a3326f.svg);
+  background-color: var(--text-interactive-color);
+  width: 16px;
+  height: 16px;
+}
+
+.textarea-copy-icon svg {
+  color: var(--text-interactive-color);
+  width: 16px;
+  height: 16px;
+}
+
+@media (prefers-color-scheme: light) {
+  .textarea {
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(189, 193, 205);
+    color: rgb(39, 45, 54);
+  }
+
+  .textarea:focus-visible {
+    border: 2px solid rgb(28, 142, 242) !important;
+    outline: none !important;
+    outline-offset: -1px;
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px;
+  }
+
+  .textarea:hover {
+    border-color: rgb(139, 147, 166);
+  }
+
+  .textarea:disabled {
+    background: rgb(250, 250, 253);
+    color: rgb(168, 174, 188);
+    border-color: rgb(216, 220, 234);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .textarea {
+    background: rgb(89, 96, 110);
+    border: 1px solid rgb(29, 34, 41);
+    color: rgb(255, 255, 255);
+  }
+
+  .textarea:focus-visible {
+    padding-right: 12px;
+    border: 2px solid rgb(255, 255, 255) !important;
+    outline: none !important;
+    outline-offset: -1px;
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px;
+  }
+
+  .textarea:hover {
+    border-color: rgb(139, 147, 166);
+  }
+
+  .textarea:disabled {
+    background: rgb(61, 67, 78);
+    color: rgb(125, 129, 134);
+    border-color: rgb(61, 67, 78);
+  }
+}
+
+/*
+ * Copyright (c) 2004-2023 Nexthink
+ * This source code is being shared with Mozilla for security review only - all rights reserved
+ */
+
+#transaction-export-element-error {
+  padding: 7px;
+  border-radius: 4px;
+  border: 1px solid;
+  box-sizing: border-box;
+  display: flex;
+}
+
+#transaction-export-element-error-icon {
+  padding-right: 8px;
+  display: flex;
+  flex: 0 0 auto;
+}
+
+#transaction-export-element-error-list {
+  margin: 0px;
+  padding-left: 8px;
+  list-style-type: "-";
+}
+
+#transaction-export-element-error-list > li {
+  padding-left: 8px;
+  word-break: break-word;
+}
+
+@media (prefers-color-scheme: light) {
+  .error {
+    background: rgba(251, 219, 215, 1);
+    border-color: rgba(251, 219, 215, 1);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .error {
+    border-color: rgba(241, 142, 126, 1);
+  }
+}
+
+/*
+ * Copyright (c) 2004-2023 Nexthink
+ * This source code is being shared with Mozilla for security review only - all rights reserved
+ */
+
+.input-text {
+  all: unset;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 0px 8px;
+  width: 100%;
+  font: 400 0.75rem / 1rem Inter, Arial, sans-serif;
+  height: 24px;
+}
+
+.input-text-wrapper {
+  box-sizing: border-box;
+  display: inline-block;
+  max-width: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.input-text:not(.invalid) ~ .input-text-error {
+  display: none;
+}
+
+.input-text.invalid,
+.input-text.invalid:hover {
+  border: 1px solid rgba(240, 126, 110, 1);
+}
+
+.input-text.invalid ~ .input-text-error {
+  display: auto;
+}
+
+.input-text-error {
+  margin-right: 8px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: auto;
+  right: 0px;
+  height: 12px;
+  width: 12px;
+}
+
+.input-text:focus-visible {
+  border: 2px solid rgb(28, 142, 242) !important;
+}
+
+.input-text:hover {
+  border-color: rgb(139, 147, 166);
+}
+
+.input-text::placeholder {
+  font-family: Inter, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-style: italic;
+}
+
+@media (prefers-color-scheme: light) {
+  .input-text {
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(189, 193, 205);
+    color: rgb(39, 45, 54);
+  }
+
+  .input-text::placeholder {
+    color: rgb(88, 98, 125);
+  }
+
+  .input-text:focus-visible {
+    border: 2px solid rgb(28, 142, 242) !important;
+    outline: none !important;
+    outline-offset: -1px;
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px;
+  }
+
+  .input-text:hover {
+    border-color: rgb(139, 147, 166);
+  }
+
+  .input-text:disabled {
+    background: rgb(250, 250, 253);
+    color: rgb(168, 174, 188);
+    border-color: rgb(216, 220, 234);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .input-text {
+    background: rgb(89, 96, 110);
+    border: 1px solid rgb(29, 34, 41);
+    color: rgb(255, 255, 255);
+  }
+
+  .input-text::placeholder {
+    color: rgb(216, 220, 234);
+  }
+
+  .input-text:focus-visible {
+    padding-right: 12px;
+    border: 2px solid rgb(255, 255, 255) !important;
+    outline: none !important;
+    outline-offset: -1px;
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px;
+  }
+
+  .input-text:hover {
+    border-color: rgb(139, 147, 166);
+  }
+
+  .input-text:disabled {
+    background: rgb(61, 67, 78);
+    color: rgb(125, 129, 134);
+    border-color: rgb(61, 67, 78);
+  }
+}
+
+/*
+ * Copyright (c) 2004-2023 Nexthink
+ * This source code is being shared with Mozilla for security review only - all rights reserved
+ */
+
+label:has(.input-radio) {
+  box-sizing: border-box;
+  display: inline-flex;
+  font: 400 0.75rem / 1rem Inter, Arial, sans-serif;
+  overflow: hidden;
+  position: relative;
+  border: none;
+  box-shadow: none;
+  color: var(--text-primary-color);
+  cursor: pointer;
+  height: 100%;
+  padding: 1px 1px 1px 25px;
+}
+
+label:has(.input-radio)::before {
+  border-radius: 50%;
+  box-sizing: border-box;
+  content: "";
+  display: inline-block;
+  height: 16px;
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  width: 16px;
+}
+
+label:has(.input-radio:checked)::after {
+  border-radius: 50%;
+  content: "";
+  display: inline-block;
+  height: 6px;
+  left: 6px;
+  position: absolute;
+  top: 6px;
+  width: 6px;
+}
+
+.input-radio {
+  opacity: 0;
+  position: absolute;
+  cursor: pointer;
+}
+
+label:has(.input-radio):focus-within {
+  padding: 0 0 0 24px;
+}
+
+label:has(.input-radio):focus-within::before {
+  top: 0;
+  left: 0;
+}
+
+label:has(.input-radio):focus-within::after {
+  top: 5px;
+  left: 5px;
+}
+
+@media (prefers-color-scheme: light) {
+  .input-radio {
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(189, 193, 205);
+    color: rgb(39, 45, 54);
+  }
+
+  label:has(.input-radio):focus-within {
+    border: 1px solid rgb(28, 142, 242);
+  }
+
+  label:has(.input-radio)::before {
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(139, 147, 166, 0.08) 0px 1px 0px;
+    border: 1px solid rgb(189, 193, 205);
+  }
+
+  label:has(.input-radio:checked)::after {
+    background-color: rgb(8, 86, 138);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .input-radio {
+    background: rgb(89, 96, 110);
+    border: 1px solid rgb(29, 34, 41);
+    color: rgb(255, 255, 255);
+  }
+
+  label:has(.input-radio):focus-within {
+    border: 1px solid rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px;
+  }
+
+  label:has(.input-radio:checked)::before {
+    background: rgb(12, 111, 198);
+    box-shadow: rgba(51, 136, 213, 0.64) 0px 1px 0px inset, rgb(29, 34, 41) 0px 1px 0px;
+    border: 0px solid rgb(29, 34, 41);
+  }
+
+  label:has(.input-radio)::before {
+    background: rgb(89, 96, 110);
+    box-shadow: rgba(255, 255, 255, 0.12) 0px 1px 0px inset, rgb(29, 34, 41) 0px 1px 0px;
+    border: 0px solid rgb(29, 34, 41);
+  }
+
+  label:has(.input-radio:checked)::after {
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+/*
+ * Copyright (c) 2004-2023 Nexthink
+ * This source code is being shared with Mozilla for security review only - all rights reserved
+ */
+
+.input-checkbox {
+  all: unset;
+  opacity: 0;
+  left: -1px;
+  top: -1px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.input-checkbox-wrapper {
+  box-sizing: border-box;
+  display: inline-block;
+  max-width: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.input-checkbox:valid ~ .input-checkbox-error {
+  display: none;
+}
+
+.input-checkbox:invalid {
+  border: rgba(240, 126, 110, 1);
+}
+
+.input-checkbox:invalid ~ .input-checkbox-error {
+  display: auto;
+}
+
+.input-checkbox-error {
+  margin-right: 8px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: auto;
+  right: 0px;
+  height: 12px;
+  width: 12px;
+}
+
+label:has(.input-checkbox) {
+  border: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  font: 400 0.75rem / 1rem Inter, Arial, sans-serif;
+  color: var(--text-primary-color);
+  height: 100%;
+  overflow: hidden;
+  padding: 1px 1px 1px 25px;
+  position: relative;
+  min-width: 18px;
+  min-height: 18px;
+}
+
+label:has(.input-checkbox)::before {
+  border-radius: 2px;
+  box-sizing: border-box;
+  content: "";
+  display: inline-block;
+  height: 16px;
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  width: 16px;
+}
+
+label:has(.input-checkbox:checked)::after {
+  position: absolute;
+  content: "";
+  mask: url(../../assets/images/8b0c389fb29560a3326f.svg);
+  -webkit-mask: url(../../assets/images/8b0c389fb29560a3326f.svg);
+  width: 16px;
+  height: 16px;
+  top: 1px;
+  left: 1px;
+}
+
+label:has(.input-checkbox):focus-within {
+  padding: 0 0 0 24px;
+}
+
+label:has(.input-checkbox):focus-within::before,
+label:has(.input-checkbox):focus-within::after {
+  top: 0;
+  left: 0;
+}
+
+@media (prefers-color-scheme: light) {
+  .input-checkbox {
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(189, 193, 205);
+    color: rgb(39, 45, 54);
+  }
+
+  label:has(.input-checkbox):focus-within {
+    border: 1px solid rgb(28, 142, 242);
+  }
+
+  label:has(.input-checkbox)::before {
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(139, 147, 166, 0.08) 0px 1px 0px;
+    border: 1px solid rgb(189, 193, 205);
+  }
+
+  label:has(.input-checkbox:checked)::after {
+    background-color: rgb(8, 86, 138);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .input-checkbox {
+    background: rgb(89, 96, 110);
+    border: 1px solid rgb(29, 34, 41);
+    color: rgb(255, 255, 255);
+  }
+
+  label:has(.input-checkbox):focus-within {
+    border: 1px solid rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px;
+  }
+
+  label:has(.input-checkbox:checked)::before {
+    background: rgb(12, 111, 198);
+    box-shadow: rgba(51, 136, 213, 0.64) 0px 1px 0px inset, rgb(29, 34, 41) 0px 1px 0px;
+    border: 0px solid rgb(29, 34, 41);
+  }
+
+  label:has(.input-checkbox)::before {
+    background: rgb(89, 96, 110);
+    box-shadow: rgba(255, 255, 255, 0.12) 0px 1px 0px inset, rgb(29, 34, 41) 0px 1px 0px;
+    border: 0px solid rgb(29, 34, 41);
+  }
+
+  label:has(.input-checkbox:checked:checked)::after {
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+/*
+ * Copyright (c) 2004-2024 Nexthink
+ * This source code is being shared with Mozilla for security review only - all rights reserved
+ */
+
+.value-list {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.value-list * {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(139, 147, 166, 0.5) transparent;
+}
+
+/*
+ * Copyright (c) 2004-2024 Nexthink
+ * This source code is being shared with Mozilla for security review only - all rights reserved
+ */
+
+.value-list-item {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.value-list-item-label {
+  flex: 0 1 auto;
+  margin: 2px 0px;
+  overflow: hidden;
+  max-height: 48px;
+  padding: 0px;
+}
+
+.value-list-item-separator {
+  display: inline-flex;
+  justify-items: center;
+  flex: 1 1 30px;
+  min-width: 30px;
+  -webkit-box-align: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.value-list-item-separator svg {
+  width: 100%;
+  height: 20px;
+  transform: rotate(180deg);
+}
+
+.value-list-item-separator svg line {
+  width: 100%;
+  stroke-width: 1;
+  stroke: rgb(139, 147, 166);
+  stroke-dasharray: 1, 2;
+}
+
+.value-list-item-value {
+  flex: 0 1 auto;
+  overflow: hidden;
+  max-height: 48px;
+  text-align: right;
+  padding: 0px;
+}
+
+/*
+ * Copyright (c) 2004-2024 Nexthink
+ * This source code is being shared with Mozilla for security review only - all rights reserved
+ */
+
+#transaction-testing-popup {
+  padding: 24px 40px;
+  width: 400px;
+  max-height: 365px;
+  box-sizing: border-box;
+}
+
+#transaction-testing-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.transaction-recording-icon {
+  width: 12px;
+  height: 12px;
+  margin: 12px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(136, 190, 230, 1) 0%,
+    rgba(112, 141, 191, 1) 100%
+  );
+  box-shadow: 0 0 0 rgb(112, 141, 191);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(112, 141, 191, 0.4);
+    box-shadow: 0 0 0 0 rgba(112, 141, 191, 0.4);
+  }
+  70% {
+    -moz-box-shadow: 0 0 0 10px rgba(112, 141, 191, 0);
+    box-shadow: 0 0 0 10px rgba(112, 141, 191, 0);
+  }
+  100% {
+    -moz-box-shadow: 0 0 0 0 rgba(112, 141, 191, 0);
+    box-shadow: 0 0 0 0 rgba(112, 141, 191, 0);
+  }
+}
+
+/* inter-cyrillic-ext-400-normal*/
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(../../assets/fonts/fcc125c4fef4b94c8b13.woff2) format('woff2'), url(../../assets/fonts/8c804432e8c67741aac0.woff) format('woff');
+  unicode-range: U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;
+}
+/* inter-cyrillic-400-normal*/
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(../../assets/fonts/8684fef6e6411779f0b0.woff2) format('woff2'), url(../../assets/fonts/8c804432e8c67741aac0.woff) format('woff');
+  unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
+}
+/* inter-greek-ext-400-normal*/
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(../../assets/fonts/3f642a92b6e57b3a4b84.woff2) format('woff2'), url(../../assets/fonts/8c804432e8c67741aac0.woff) format('woff');
+  unicode-range: U+1F00-1FFF;
+}
+/* inter-greek-400-normal*/
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(../../assets/fonts/0278a49f9007106a0bf4.woff2) format('woff2'), url(../../assets/fonts/8c804432e8c67741aac0.woff) format('woff');
+  unicode-range: U+0370-03FF;
+}
+/* inter-vietnamese-400-normal*/
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(../../assets/fonts/789afb71d327988e2fc8.woff2) format('woff2'), url(../../assets/fonts/8c804432e8c67741aac0.woff) format('woff');
+  unicode-range: U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB;
+}
+/* inter-latin-ext-400-normal*/
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(../../assets/fonts/3a7a76525d98d25962eb.woff2) format('woff2'), url(../../assets/fonts/8c804432e8c67741aac0.woff) format('woff');
+  unicode-range: U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+/* inter-latin-400-normal*/
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(../../assets/fonts/be7cb18dc7caf47cf7e9.woff2) format('woff2'), url(../../assets/fonts/8c804432e8c67741aac0.woff) format('woff');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+/* inter-cyrillic-ext-500-normal*/
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(../../assets/fonts/a93857ed8d0b316d3572.woff2) format('woff2'), url(../../assets/fonts/83e7a0ab5dc3177d4723.woff) format('woff');
+  unicode-range: U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;
+}
+/* inter-cyrillic-500-normal*/
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(../../assets/fonts/737dedc32b59205a84d9.woff2) format('woff2'), url(../../assets/fonts/83e7a0ab5dc3177d4723.woff) format('woff');
+  unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
+}
+/* inter-greek-ext-500-normal*/
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(../../assets/fonts/80f07073e922d2bc65df.woff2) format('woff2'), url(../../assets/fonts/83e7a0ab5dc3177d4723.woff) format('woff');
+  unicode-range: U+1F00-1FFF;
+}
+/* inter-greek-500-normal*/
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(../../assets/fonts/4403838c26aa2155eb84.woff2) format('woff2'), url(../../assets/fonts/83e7a0ab5dc3177d4723.woff) format('woff');
+  unicode-range: U+0370-03FF;
+}
+/* inter-vietnamese-500-normal*/
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(../../assets/fonts/af96698e6248b5be6d91.woff2) format('woff2'), url(../../assets/fonts/83e7a0ab5dc3177d4723.woff) format('woff');
+  unicode-range: U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB;
+}
+/* inter-latin-ext-500-normal*/
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(../../assets/fonts/cd2491c30c7f25218ecd.woff2) format('woff2'), url(../../assets/fonts/83e7a0ab5dc3177d4723.woff) format('woff');
+  unicode-range: U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+/* inter-latin-500-normal*/
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(../../assets/fonts/c72c72b70c82b1f4bacf.woff2) format('woff2'), url(../../assets/fonts/83e7a0ab5dc3177d4723.woff) format('woff');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+/* inter-cyrillic-ext-600-normal*/
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../../assets/fonts/c1791ace2adbca4163ca.woff2) format('woff2'), url(../../assets/fonts/d8872b2170f87e73c798.woff) format('woff');
+  unicode-range: U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;
+}
+/* inter-cyrillic-600-normal*/
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../../assets/fonts/f17ec551fa8990736da1.woff2) format('woff2'), url(../../assets/fonts/d8872b2170f87e73c798.woff) format('woff');
+  unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
+}
+/* inter-greek-ext-600-normal*/
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../../assets/fonts/66b622a25da168cc60ec.woff2) format('woff2'), url(../../assets/fonts/d8872b2170f87e73c798.woff) format('woff');
+  unicode-range: U+1F00-1FFF;
+}
+/* inter-greek-600-normal*/
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../../assets/fonts/c2ba769d6f2c3a8b76fc.woff2) format('woff2'), url(../../assets/fonts/d8872b2170f87e73c798.woff) format('woff');
+  unicode-range: U+0370-03FF;
+}
+/* inter-vietnamese-600-normal*/
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../../assets/fonts/fe7c406ffbd129b7aa88.woff2) format('woff2'), url(../../assets/fonts/d8872b2170f87e73c798.woff) format('woff');
+  unicode-range: U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB;
+}
+/* inter-latin-ext-600-normal*/
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../../assets/fonts/3cd8400fefcd41fe460c.woff2) format('woff2'), url(../../assets/fonts/d8872b2170f87e73c798.woff) format('woff');
+  unicode-range: U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+/* inter-latin-600-normal*/
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../../assets/fonts/8f1e0300e8d26fa8919d.woff2) format('woff2'), url(../../assets/fonts/d8872b2170f87e73c798.woff) format('woff');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+/* inter-cyrillic-ext-700-normal*/
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(../../assets/fonts/177b82cdf603287fdd19.woff2) format('woff2'), url(../../assets/fonts/4caa68a0cd07682d7af5.woff) format('woff');
+  unicode-range: U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;
+}
+/* inter-cyrillic-700-normal*/
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(../../assets/fonts/fce0dd826e17f3fa0ff1.woff2) format('woff2'), url(../../assets/fonts/4caa68a0cd07682d7af5.woff) format('woff');
+  unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
+}
+/* inter-greek-ext-700-normal*/
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(../../assets/fonts/25e184a638be1a4d9798.woff2) format('woff2'), url(../../assets/fonts/4caa68a0cd07682d7af5.woff) format('woff');
+  unicode-range: U+1F00-1FFF;
+}
+/* inter-greek-700-normal*/
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(../../assets/fonts/d36e38b13429f45c7973.woff2) format('woff2'), url(../../assets/fonts/4caa68a0cd07682d7af5.woff) format('woff');
+  unicode-range: U+0370-03FF;
+}
+/* inter-vietnamese-700-normal*/
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(../../assets/fonts/3d836ea0c2480ab12b4b.woff2) format('woff2'), url(../../assets/fonts/4caa68a0cd07682d7af5.woff) format('woff');
+  unicode-range: U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB;
+}
+/* inter-latin-ext-700-normal*/
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(../../assets/fonts/8e5621b2012f373fe96e.woff2) format('woff2'), url(../../assets/fonts/4caa68a0cd07682d7af5.woff) format('woff');
+  unicode-range: U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+/* inter-latin-700-normal*/
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(../../assets/fonts/54321e26b8bf4739a16d.woff2) format('woff2'), url(../../assets/fonts/4caa68a0cd07682d7af5.woff) format('woff');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+/*
+ * Copyright (c) 2004-2024 Nexthink
+ * This source code is being shared with Mozilla for security review only - all rights reserved
+ */
+
+:root {
+  /* BACKGROUND */
+  --background-dark-color: #272d36;
+  --background-light-color: #ffffff;
+  /* COLOR */
+  --active-color: #0077c0;
+  --error-color: #f07e6e;
+  --warning-color: #fdcd6c;
+  --success-color: #77c297;
+  /* TEXT */
+  /* PRIVATE - used for light and dark theme
+    Use instead:
+    --text-interactive-color
+    --text-primary-color
+    --text-secondary-color
+    --text-tertiary-color
+    --background-color
+  */
+  --text-primary-dark-color: #ffffff;
+  --text-primary-light-color: #272d36;
+  --text-secondary-dark-color: #c4c9d4;
+  --text-secondary-light-color: #58627d;
+  --text-tertiary-dark-color: #8b93a6;
+  --text-tertiary-light-color: #8b93a6;
+  --text-interactive-dark-color: #5da8ec;
+  --text-interactive-light-color: #0c6fc6;
+  /* PUBLIC */
+  --text-primary-size: 13px;
+  --text-tertiary-size: 12px;
+  --text-disabled-color: #a8aebc;
+  --text-success-color: #77c297;
+  --text-info-color: #88bde6;
+  --text-warning-color: #fdcd6c;
+  --text-error-color: #ec6054;
+  /* SCROLLBAR */
+  --scrollbar-color: rgba(139, 147, 166, 0.5);
+  --scrollbar-size: 6px;
+  /* EULA */
+  --eula-button-background-color: #0c6fc6;
+  --eula-stroke-button-light-color: #bdc1cd;
+  --eula-stroke-button-dark-color: #4f5663;
+}
+
+/*
+ * Copyright (c) 2004-2024 Nexthink
+ * This source code is being shared with Mozilla for security review only - all rights reserved
+ */
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --text-interactive-color: var(--text-interactive-light-color);
+    --text-primary-color: var(--text-primary-light-color);
+    --text-secondary-color: var(--text-secondary-light-color);
+    --text-tertiary-color: var(--text-tertiary-light-color);
+    --background-color: var(--background-light-color);
+  }
+
+  .button-eula-secondary {
+    color: var(--text-primary-light-color);
+    border: 1px solid var(--eula-stroke-button-light-color);
+    box-shadow: 0px 1px 0px 0px rgba(139, 147, 166, 0.08);
+  }
+}
+
+/*
+ * Copyright (c) 2004-2024 Nexthink
+ * This source code is being shared with Mozilla for security review only - all rights reserved
+ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-interactive-color: var(--text-interactive-dark-color);
+    --text-primary-color: var(--text-primary-dark-color);
+    --text-secondary-color: var(--text-secondary-dark-color);
+    --text-tertiary-color: var(--text-tertiary-dark-color);
+    --background-color: var(--background-dark-color);
+  }
+
+  .button-eula-secondary {
+    color: var(--text-primary-dark-color);
+    border: 1px solid var(--eula-stroke-button-dark-color);
+  }
+}
+
+/*
+ * Copyright (c) 2004-2024 Nexthink
+ * This source code is being shared with Mozilla for security review only - all rights reserved
+ */
+
+[class*="button"]:hover {
+  cursor: pointer;
+}
+
+[class*="button"] {
+  all: unset;
+  -webkit-box-align: center;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-flex;
+  font-family: Inter, Arial, sans-serif;
+  margin: 0px;
+  position: relative;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+.button-primary,
+.button-secondary {
+  height: calc(0.5rem + 24px);
+  line-height: calc(0.5rem + 22px);
+  padding: 0px 16px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+}
+
+.button-small {
+  height: calc(0.5rem + 16px);
+  line-height: calc(0.5rem + 14px);
+  padding: 0px 12px;
+}
+
+@media (prefers-color-scheme: light) {
+  .button-primary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(12, 111, 198);
+    border: 1px solid rgb(12, 111, 198);
+  }
+
+  .button-primary:active {
+    background-color: rgb(12, 84, 151);
+    border-color: rgb(12, 84, 151);
+  }
+
+  .button-primary:hover {
+    background-color: rgb(9, 89, 163);
+    border-color: rgb(9, 89, 163);
+  }
+
+  .button-primary:disabled {
+    color: rgb(255, 255, 255);
+    background-color: rgb(167, 205, 231);
+    border: 1px solid rgb(167, 205, 231);
+  }
+
+  .button-secondary {
+    color: rgb(39, 45, 54);
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(189, 193, 205);
+    box-shadow: rgba(139, 147, 166, 0.08) 0px 1px 0px;
+  }
+
+  .button-secondary:active {
+    background-color: rgb(209, 212, 221);
+    border-color: rgb(209, 212, 221);
+    box-shadow: none;
+  }
+
+  .button-secondary:hover {
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(139, 147, 166);
+    box-shadow: rgba(139, 147, 166, 0.08) 0px 1px 0px;
+  }
+
+  .button-secondary:disabled {
+    color: rgb(168, 174, 188);
+    background-color: rgb(245, 246, 250);
+    border: 1px solid rgb(245, 246, 250);
+    box-shadow: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .button-primary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(12, 111, 198);
+    border: 1px solid rgb(12, 111, 198);
+  }
+
+  .button-primary:active {
+    background-color: rgb(12, 84, 151);
+    border-color: rgb(12, 84, 151);
+  }
+
+  .button-primary:hover {
+    background-color: rgb(9, 89, 163);
+    border-color: rgb(9, 89, 163);
+  }
+
+  .button-primary:disabled {
+    color: rgb(125, 129, 134);
+    background-color: rgb(27, 64, 100);
+    border: 1px solid rgb(27, 64, 100);
+  }
+
+  .button-secondary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(39, 45, 54);
+    border: 1px solid rgb(79, 86, 99);
+    box-shadow: none;
+  }
+
+  .button-secondary:active {
+    background-color: rgb(71, 78, 90);
+    border-color: rgb(71, 78, 90);
+    box-shadow: none;
+  }
+
+  .button-secondary:hover {
+    background-color: rgb(39, 45, 54);
+    border-color: rgb(139, 147, 166);
+    box-shadow: none;
+  }
+
+  .button-secondary:disabled {
+    color: rgb(125, 129, 134);
+    background-color: rgb(56, 62, 70);
+    border: 1px solid rgb(56, 62, 70);
+    box-shadow: none;
+  }
+}
+
+/*
+ * Copyright (c) 2004-2024 Nexthink
+ * This source code is being shared with Mozilla for security review only - all rights reserved
+ */
+
+details.collapsible > summary {
+  list-style-type: none;
+  cursor: pointer;
+}
+
+details.collapsible > summary::-webkit-details-marker {
+  display: none;
+}
+
+details.collapsible > summary::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  mask: url(../../assets/images/e3a3972c1edcdddf8de2.svg);
+  -webkit-mask: url(../../assets/images/e3a3972c1edcdddf8de2.svg);
+  mask-size: cover;
+  -webkit-mask-size: cover;
+  vertical-align: top;
+  background-color: var(--text-primary-color);
+  transition: transform 400ms ease-in;
+}
+
+details.collapsible + div.details {
+  display: grid;
+  grid-template-rows: 0;
+}
+
+details.collapsible[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+details.collapsible[open] + div.details {
+  grid-template-rows: 1fr;
+}
+
+details.collapsible:not([open]) + div.details {
+  overflow: hidden;
+}
+
+/*
+ * Copyright (c) 2004-2024 Nexthink
+ * This source code is being shared with Mozilla for security review only - all rights reserved
+ */
+
+.list {
+  all: unset;
+  display: inherit;
+}
+
+.list > * {
+  list-style: none;
+}
+
+/*
+ * Copyright (c) 2004-2024 Nexthink
+ * This source code is being shared with Mozilla for security review only - all rights reserved
+ */
+
+p,
+span,
+h3 {
+  font-family: Inter, Arial, sans-serif;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1rem;
+  margin: 0px;
+  padding: 0px;
+}
+
+.body {
+  font-family: Inter, Arial, sans-serif;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1rem;
+}
+
+.body-strong {
+  font-family: Inter, Arial, sans-serif;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1rem;
+}
+
+.body-small {
+  font-family: Inter, Arial, sans-serif;
+  font-size: 0.6875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1rem;
+}
+
+.body-very-small {
+  font-family: Inter, Arial, sans-serif;
+  font-size: 0.5625rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 0.75rem;
+}
+
+.heading3 {
+  font-family: Inter, Arial, sans-serif;
+  font-style: normal;
+  font-size: 1.17em;
+  font-weight: 700;
+  line-height: 1.5rem;
+}
+
+.heading4 {
+  font-family: Inter, Arial, sans-serif;
+  font-style: normal;
+  font-size: 1.17em;
+  font-weight: 600;
+  line-height: 1.5rem;
+}
+
+.sub {
+  font-family: Inter, Arial, sans-serif;
+  font-size: 0.6875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1rem;
+}
+
+.text-with-icon {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  gap: 8px;
+}
+
+.text-primary {
+  color: var(--text-primary-color);
+}
+
+.text-secondary {
+  color: var(--text-secondary-color);
+}
+
+.text-tertiary {
+  color: var(--text-tertiary-color);
+}
+
+.text-interactive {
+  color: var(--text-interactive-color);
+}
+
+.text-disabled {
+  color: var(--text-disabled-color);
+}
+
+.text-success {
+  color: var(--text-success-color);
+}
+.text-warning {
+  color: var(--text-warning-color);
+}
+.text-error {
+  color: var(--text-error-color);
+}
+
+/*
+ * Copyright (c) 2004-2024 Nexthink
+ * This source code is being shared with Mozilla for security review only - all rights reserved
+ */
+
+/*
+ * Copyright (c) 2004-2024 Nexthink
+ * This source code is being shared with Mozilla for security review only - all rights reserved
+ */
+
+body {
+  display: flex;
+  flex-direction: row;
+  /* align-items: stretch; */
+  /* justify-content: stretch; */
+  /* justify-items: stretch; */
+  margin: 0px;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  font-family: Inter, Arial, sans-serif;
+  background-color: var(--background-color);
+}
+
+.report {
+  color: var(--text-primary-color);
+  font-size: var(--text-primary-size);
+}
+
+.report .url-header,
+.report .report-header {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.report ul,
+.report ul li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.report ul li a {
+  display: block;
+  padding: 8px 8px 8px 28px;
+  text-decoration: none;
+  color: #333;
+  font-size: 13px;
+  position: relative;
+}
+
+.report ul li a:before {
+  display: inline-block;
+  content: " ";
+  width: 20px;
+  height: 20px;
+  border: 4px solid #e4e6f0;
+  /* box-sizing: border-box; */
+  border-radius: 100%;
+  position: absolute;
+  left: 0;
+  top: 6px;
+}
+
+.report ul li a:hover:before {
+  background-color: #e4e6f0;
+}
+
+.report ul li a:active:before,
+.report ul li a:focus:before {
+  background-color: #1046a8;
+  border: 0;
+  background-image: url(../../assets/images/364175fe03dcef3134a5.svg);
+  background-size: 8px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.report ul > li,
+.report ul > ul {
+  margin-left: 16px;
+}
+
+.report > ul {
+  margin-bottom: 8px;
+}
+
+.report ul:before {
+  content: attr(aria-label);
+  font-weight: bold;
+}
+
+.report label {
+  font-weight: bold;
+}
+
+.report label,
+.report textarea {
+  display: block;
+  margin-bottom: 4px;
+  padding: 0;
+}
+
+.report textarea {
+  border: 1px solid #dae1ed;
+  resize: none;
+  font-size: 13px;
+  width: 100%;
+  /* box-sizing: border-box; */
+  padding: 4px;
+}
+
+.report .thx {
+  text-align: center;
+  padding: 24px 0;
+}
+
+.report .thx span {
+  display: block;
+  font-size: 16px;
+}
+
+.report .privacy {
+  margin: 0;
+  padding: 0 12px 24px 0;
+}
+
+#popup-footer {
+  display: flex;
+  padding-top: 24px;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#popup-footer-text {
+  line-height: 16px;
+  letter-spacing: 0px;
+  margin: 0;
+  padding: 0;
+}
+
+#popup-footer-logo {
+  height: 11px;
+  vertical-align: middle;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  height: var(--scrollbar-size);
+  width: var(--scrollbar-size);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: var(--scrollbar-color);
+}
+
+.monitored-url {
+  color: var(--text-tertiary-color);
+  font-size: var(--text-tertiary-size);
+}
+
+.sd-metric-wrapper {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.sd-log-level-wrapper {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.sd-metric-name {
+  float: left;
+}
+
+.sd-metric-title {
+  flex: auto;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+.sd-metric-value {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  align-self: flex-end;
+}
+
+.sd-metric-main .sd-metric-value {
+  font-weight: 600;
+}
+
+.button-eula-primary {
+  width: 152px;
+  padding: 12px 16px;
+  justify-content: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 4px;
+  background: var(--eula-button-background-color);
+  color: var(--text-primary-color);
+  display: flex;
+  align-items: center;
+  margin: 8px;
+  cursor: pointer;
+}
+
+.button-eula-secondary {
+  width: 152px;
+  padding: 12px 16px;
+  justify-content: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  margin: 8px;
+  cursor: pointer;
+  background: none;
+}
+
+.eula-acceptance {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textarea-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 4px;
+}
+
+.hidden {
+  height: 0;
+}
+
+.show {
+  height: 100%;
+}
+
+#recording-icon {
+  animation: color 2s infinite;
+}
+
+#transaction-inspector-selector {
+  margin-bottom: 24px;
+}
+
+#transaction-inspector-selector-match {
+  display: flex;
+  gap: 2px;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+#transaction-inspector-header-selector-text {
+  display: flex;
+  gap: 4px;
+}
+
+#transaction-inspector-header-selector-text svg path {
+  width: 16px;
+  height: 16px;
+}
+
+#transaction-inspector-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+#transaction-inspector-popup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+#transaction-inspector-popup-selecting-title {
+  margin-bottom: 16px;
+}
+
+#list-transaction-detected-element-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-right: 12px;
+  overflow: auto;
+  height: 100%;
+}
+
+#select-transaction-element-button {
+  width: 200px;
+}
+
+#select-autodetect-transaction-element-button {
+  width: 200px;
+}
+
+#transaction-configuration-form {
+  display: flex;
+  flex-direction: column;
+  margin-right: 8px;
+}
+
+#transaction-configuration-start-event-advanced-button {
+  align-self: flex-start;
+}
+
+#transaction-configuration-start-event-advanced {
+  align-self: flex-start;
+  margin-top: 6px;
+}
+
+#transaction-configuration-start-event-advanced-container {
+  align-items: start;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#transaction-configuration-start-event-advanced-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+#transaction-configuration-start-event-advanced-event-type-container {
+  display: flex;
+  flex-direction: column;
+  align-items: self-start;
+  gap: 4px;
+}
+
+#transaction-configuration-start-event-advanced-text-pattern-container {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  gap: 4px;
+}
+
+#transaction-configuration-end-event {
+  margin-top: 16px;
+}
+
+#transaction-export-element-form {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+#transaction-export-element-title {
+  margin-bottom: 16px;
+}
+
+.detached-popup {
+  /* box-sizing: border-box; */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  min-height: inherit;
+  justify-content: space-between;
+}
+
+#event-summary-popup {
+  padding: 24px 40px;
+  min-width: 466px;
+}
+
+/* Transaction configuration */
+#start-transaction-configuration-popup {
+  padding: 24px 40px;
+  width: 400px;
+  max-height: 462px;
+  min-width: 400px;
+  min-height: 436px;
+}
+
+#start-transaction-configuration-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.start-transaction-configuration-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#transaction-inspector-element-popup {
+  padding: 24px 40px;
+  min-width: 400px;
+  /* min-max-height: 688px; */
+}
+
+#transaction-detecting-element-popup {
+  padding: 24px 40px;
+  min-width: 400px;
+  /* min-max-height: 680px; */
+}
+
+#transaction-detecting-no-element-popup {
+  padding: 24px 40px;
+  min-width: 400px;
+  /* min-max-height: 218px; */
+}
+
+#transaction-export-element-popup {
+  padding: 24px 40px;
+  min-width: 400px;
+}
+
+#transaction-configuration-popup {
+  padding: 24px 40px;
+  min-width: 400px;
+}
+
+
+/*# sourceMappingURL=detached-monitored-popup.css.map*/
