@@ -1,2 +1,3 @@
-2024/03/18-10:37:49.596 429c Creating DB C:\Users\egarciar\Documents\CAIXA\AutoHotKeyEGR\Reto_1_rpachallenge\ChromeProfile\Default\Local Storage\leveldb since it was missing.
-2024/03/18-10:37:49.653 429c Reusing MANIFEST C:\Users\egarciar\Documents\CAIXA\AutoHotKeyEGR\Reto_1_rpachallenge\ChromeProfile\Default\Local Storage\leveldb/MANIFEST-000001
+2024/03/19-13:34:47.125 67e0 Reusing MANIFEST C:\Users\egarciar\Documents\CAIXA\AutoHotKeyEGR\Reto_1_rpachallenge\ChromeProfile\Default\Local Storage\leveldb/MANIFEST-000001
+2024/03/19-13:34:47.130 67e0 Recovering log #3
+2024/03/19-13:34:47.198 67e0 Reusing old log C:\Users\egarciar\Documents\CAIXA\AutoHotKeyEGR\Reto_1_rpachallenge\ChromeProfile\Default\Local Storage\leveldb/000003.log 

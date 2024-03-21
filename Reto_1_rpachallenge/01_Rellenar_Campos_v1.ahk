@@ -116,7 +116,7 @@ abrir_pagina_web(url_Entrada,FilePathficheroExcelLectura)
             Array_Datos := []
         bandera_situacion:= bandera_situacion+1
         ;1.3 Presionamos submit
-        cargando_pag_web(web_browser,1000) ;Esperamos 2 segundos
+        ;cargando_pag_web(web_browser,1000) ;Esperamos 2 segundos
         presionar_Submit(web_browser)
     }
     cargando_pag_web(web_browser,1000) ;Esperamos 1 segundos
