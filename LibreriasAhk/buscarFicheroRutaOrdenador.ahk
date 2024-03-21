@@ -4,9 +4,11 @@ SendMode, Input
 SetBatchLines, -1
 SetWorkingDir, %A_ScriptDir%
 
+#Include ../LibreriasAhk/Funciones_Auxiliares.ahk
+
 
 ; Función para buscar el archivo en todas las carpetas y subcarpetas
-BuscarArchivoEnC(carpetas, archivo) {
+BuscarArchivoEnC(carpetas, archivo,flagSoloRuta) {
     ;Creo un String con las rutas de todos los ficheros que hay en la carpeta
     StringAllFicheros := CreateString(carpetas)
     ; Recorro el StringAllFicheros y coloco todos los datos en una MatrizAuxiliar
@@ -17,6 +19,7 @@ BuscarArchivoEnC(carpetas, archivo) {
     controlWhile1 := 1
     indiceMatrizSalida := 1    
     ArraySalida := []
+    ArraySalidaAuxiliar := []
     indiceArraySalida := 1
     While, controlWhile1 <= longitud_Matriz_Auxiliar {
         ;Si el archivo esta en  MatrizAuxiliar[i] incluyo la direccion en ArraySalida[]
@@ -25,49 +28,17 @@ BuscarArchivoEnC(carpetas, archivo) {
         Subcadena := archivo
         if InStr(CadenaCompleta, Subcadena)
         {
-            ArraySalida.InsertAt(indiceArraySalida, Matriz_Auxiliar[controlWhile1])
+            ArraySalidaAuxiliar.InsertAt(indiceArraySalida, Matriz_Auxiliar[controlWhile1])
             indiceArraySalida++
         }
         controlWhile1++
     }
+    ; Llamamos a la funcion quitarCaracteres(ArraySalidaAuxiliar)
+    if(flagSoloRuta = 1){
+        ArraySalida:= quitarCaracteres(ArraySalidaAuxiliar,"\")
+    }else{
+        ArraySalida := ArraySalidaAuxiliar
+    }
 Return ArraySalida
 
-}
-
-
-
-
-CreateString(Folder, Call=0)
-{
-	global LoadIcons
-	MatrizSalida := []
-	Call++
-	Loop, %Folder%\*.*, 1
-	{
-		;Progress, %A_Index%, %A_LoopFileDir%
-        /*
-
-		If LoadIcons
-			Icon := "`tIcon" GetIcon(A_LoopFileFullPath)
-        
-        */
-		If InStr(FileExist(A_LoopFileFullPath), "D")
-		{
-			Loop, %Call%
-			;	String .= "`t"
-			;String .= A_LoopFileName . Icon "`n"
-            String .= Folder . "\" . A_LoopFileName . ";"            
-			String .= CreateString(A_LoopFileFullPath, Call)
-		}
-		Else
-		{
-			Loop, %Call%
-			;	Files .= "`t"
-			;Files .= A_LoopFileName . Icon "`n"
-            Files .= Folder . "\" . A_LoopFileName . ";" 
-		}
-	}
-	String .= Files
-	Call--
-	return String
 }

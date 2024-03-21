@@ -45,7 +45,11 @@
     * LibreriasAhk\WebSocket.ahk 
     * Test_FMT8.ahk 
  # feature/FMT9 UIAutomation-main + Buscar Fichero en Ordenador + TreeViewBrowser.ahk
-    * Carpeta entera UIAutomation-main
-    * buscarFicheroRutaOrdenador.ahk
-    * TreeViewBrowser.ahk
+    + Carpeta entera UIAutomation-main
+    + buscarFicheroRutaOrdenador.ahk
+    + TreeViewBrowser.ahk
+    + Test_FMT9.ahk 
+ # feature/FMT10 Mejoras Buscar Fichero en Ordenador
+    * buscarFicheroRutaOrdenador.ahk (Se añade un flag, para determinar si solo queremos la ruta o la ruta + nombre del archivo a buscar)
     * Test_FMT9.ahk 
+    + Funciones_Auxiliares.ahk
